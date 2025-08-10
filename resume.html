@@ -13,41 +13,137 @@
     <!-- Sidebar -->
     <div class="sidebar expanded" id="sidebar">
         <div class="profile" id="sidebarToggle">
-            <img src="images/profile.jpg" alt="Profile">
+            <img src="images/profile.jpg" alt="Profile Picture">
         </div>
         <nav>
-            <a href="index.html" data-page="index.html"><i class="fas fa-home"></i><span>Home</span></a>
-            <a href="publications.html" data-page="publications.html"><i class="fas fa-book"></i><span>Publications</span></a>
-            <a href="research.html" data-page="research.html"><i class="fas fa-flask"></i><span>Research Interests</span></a>
-            <a href="teaching.html" data-page="teaching.html"><i class="fas fa-chalkboard-teacher"></i><span>Teaching</span></a>
-            <a href="personal.html" data-page="personal.html"><i class="fas fa-user"></i><span>Personal Info</span></a>
-            <a href="resume.html" data-page="resume.html"><i class="fas fa-file-alt"></i><span>Resume</span></a>
-            <a href="contact.html" data-page="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
+            <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="publications.html"><i class="fas fa-book"></i><span>Publications</span></a>
+            <a href="research.html"><i class="fas fa-flask"></i><span>Research Interests</span></a>
+            <a href="teaching.html"><i class="fas fa-chalkboard-teacher"></i><span>Teaching</span></a>
+            <a href="personal.html"><i class="fas fa-user"></i><span>Personal Info</span></a>
+            <a href="resume.html" class="active"><i class="fas fa-file-alt"></i><span>Resume</span></a>
+            <a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
         </nav>
     </div>
 
-    <!-- Main Content -->
+    <!-- Main -->
     <div class="main">
-        <div class="download-bar">
-            <a href="docs/My_CV.pdf" download>
-                <button class="download-btn">
-                    <i class="fas fa-download"></i> Download Resume (PDF)
-                </button>
-            </a>
-        </div>
         <div class="resume-container">
+            <!-- Toolbar -->
             <div class="resume-toolbar">
-                <button id="prev">⬅ Prev</button>
-                <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
-                <button id="next">Next ➡</button>
-                <button id="zoom_in">🔍+</button>
-                <button id="zoom_out">🔍-</button>
-                <a href="My_CV.pdf" download class="download-btn">⬇ Download PDF</a>
+                <button id="prev" class="icon-btn" title="Previous Page"><i class="fas fa-arrow-left"></i></button>
+                <span>Page <span id="page_num"></span> / <span id="page_count"></span></span>
+                <button id="next" class="icon-btn" title="Next Page"><i class="fas fa-arrow-right"></i></button>
+
+                <button id="zoom_in" class="icon-btn" title="Zoom In"><i class="fas fa-search-plus"></i></button>
+                <button id="zoom_out" class="icon-btn" title="Zoom Out"><i class="fas fa-search-minus"></i></button>
+
+                <button id="fit_screen" class="icon-btn" title="Fit to Screen"><i id="fit_icon" class="fas fa-expand"></i></button>
+
+                <a href="docs/My_CV.pdf" download class="download-btn"><i class="fas fa-download"></i> PDF</a>
             </div>
+
+            <!-- PDF Canvas -->
             <canvas id="resume-canvas"></canvas>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- PDF.js Script -->
+    <script>
+        const url = 'docs/My_CV.pdf';
+        let pdfDoc = null,
+            pageNum = 1,
+            pageRendering = false,
+            pageNumPending = null,
+            scale = 1.0,
+            fitToScreen = false,
+            canvas = document.getElementById('resume-canvas'),
+            ctx = canvas.getContext('2d');
+
+        pdfjsLib.getDocument(url).promise.then(function (pdfDoc_) {
+            pdfDoc = pdfDoc_;
+            document.getElementById('page_count').textContent = pdfDoc.numPages;
+            renderPage(pageNum);
+        });
+
+        function renderPage(num) {
+            pageRendering = true;
+            pdfDoc.getPage(num).then(function (page) {
+                let viewport = page.getViewport({ scale: scale });
+
+                if (fitToScreen) {
+                    let availableHeight = window.innerHeight - document.querySelector('.resume-toolbar').offsetHeight - 20;
+                    let scaleFactor = availableHeight / viewport.height;
+                    viewport = page.getViewport({ scale: scaleFactor });
+                } else {
+                    let containerWidth = document.querySelector('.main').clientWidth - 20;
+                    let scaleFactor = containerWidth / viewport.width;
+                    viewport = page.getViewport({ scale: scale * scaleFactor });
+                }
+
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                let renderContext = { canvasContext: ctx, viewport: viewport };
+                let renderTask = page.render(renderContext);
+
+                renderTask.promise.then(function () {
+                    pageRendering = false;
+                    if (pageNumPending !== null) {
+                        renderPage(pageNumPending);
+                        pageNumPending = null;
+                    }
+                });
+            });
+
+            document.getElementById('page_num').textContent = num;
+        }
+
+        function queueRenderPage(num) {
+            if (pageRendering) {
+                pageNumPending = num;
+            } else {
+                renderPage(num);
+            }
+        }
+
+        // Navigation
+        document.getElementById('prev').addEventListener('click', function () {
+            if (pageNum <= 1) return;
+            pageNum--;
+            queueRenderPage(pageNum);
+        });
+
+        document.getElementById('next').addEventListener('click', function () {
+            if (pageNum >= pdfDoc.numPages) return;
+            pageNum++;
+            queueRenderPage(pageNum);
+        });
+
+        // Zoom
+        document.getElementById('zoom_in').addEventListener('click', function () {
+            scale += 0.2;
+            if (!fitToScreen) queueRenderPage(pageNum);
+        });
+
+        document.getElementById('zoom_out').addEventListener('click', function () {
+            if (scale > 0.4) {
+                scale -= 0.2;
+                if (!fitToScreen) queueRenderPage(pageNum);
+            }
+        });
+
+        // Fit to screen toggle
+        document.getElementById('fit_screen').addEventListener('click', function () {
+            fitToScreen = !fitToScreen;
+            document.getElementById('fit_icon').className = fitToScreen ? "fas fa-compress" : "fas fa-expand";
+            queueRenderPage(pageNum);
+        });
+
+        // Auto re-render on resize
+        window.addEventListener('resize', () => {
+            queueRenderPage(pageNum);
+        });
+    </script>
 </body>
 </html>
