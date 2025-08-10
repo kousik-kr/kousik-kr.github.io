@@ -214,3 +214,22 @@ body {
         left: 0;
     }
 }
+
+.resume-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh; /* Full page height */
+    padding: 0;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.resume-container iframe {
+    flex: 1;
+    width: 90%; /* Wider but leaves some space on sides */
+    height: calc(100% - 60px); /* Full height minus download button area */
+    border: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
