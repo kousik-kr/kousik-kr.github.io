@@ -127,6 +127,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0.16px;
 }
 
 /* Centered inner container that keeps content away from edges */
@@ -163,7 +164,7 @@ align-items: center;
     max-width: 900px
  ;} 
 .about-section h1 {   
-    margin-bottom: 15px;    
+    margin-top: 24px;    
     font-size: 2em;    
     color: #333
 ;}
