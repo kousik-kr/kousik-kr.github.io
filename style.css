@@ -215,43 +215,113 @@ body {
     }
 }
 
+/* ===== Resume toolbar: modern, sticky, rounded buttons ===== */
 .resume-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    background: #f0f0f0;
-    padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background: #f6f8fb;
+  overflow: hidden;
 }
 
+/* Sticky toolbar that stays at the top of the main area */
 .resume-toolbar {
-    display: flex;
-    gap: 10px;
-    background: white;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    width: 100%;
-    justify-content: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.95); /* slight translucency */
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 2px 8px rgba(10,42,102,0.06);
+  width: 100%;
+  flex-shrink: 0;
 }
 
+/* Unified button/link appearance */
 .resume-toolbar button,
-.resume-toolbar .download-btn {
-    padding: 6px 12px;
-    border: none;
-    background: #2a5298;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9em;
+.resume-toolbar .download-btn,
+.resume-toolbar a.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0a2a66;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform .08s ease, background .12s ease, box-shadow .12s ease;
+  box-shadow: 0 2px 6px rgba(10,42,102,0.12);
 }
 
 .resume-toolbar button:hover,
 .resume-toolbar .download-btn:hover {
-    background: #1e3c72;
+  transform: translateY(-2px);
+  background: #092553;
+  box-shadow: 0 6px 18px rgba(10,42,102,0.12);
 }
 
+/* Icon-only small buttons (if you want small square icons) */
+.resume-toolbar .icon-btn {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+/* Page counter styling */
+.resume-toolbar span {
+  font-size: 0.98rem;
+  color: #1f2b4d;
+  margin: 0 6px;
+}
+
+/* Canvas styling: centered, responsive, with max width */
 #resume-canvas {
-    margin-top: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  display: block;
+  margin: 12px auto;
+  max-width: calc(100% - 40px); /* small horizontal margin */
+  width: auto;
+  height: auto;
+  box-shadow: 0 8px 30px rgba(10,42,102,0.08);
+  border-radius: 4px;
+  background: white;
+}
+
+/* On very wide screens cap the canvas width for readability */
+@media (min-width: 1200px) {
+  #resume-canvas {
+    max-width: 1100px;
+  }
+}
+
+/* Mobile: toolbar wraps and buttons become touch-friendly */
+@media (max-width: 768px) {
+  .resume-toolbar {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .resume-toolbar button,
+  .resume-toolbar .download-btn {
+    flex: 1 1 45%;
+    min-width: 110px;
+    font-size: 0.9rem;
+  }
+
+  /* icon-only buttons stay square */
+  .resume-toolbar .icon-btn {
+    min-width: 48px;
+    width: 48px;
+    height: 48px;
+  }
 }
