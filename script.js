@@ -2,14 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const sidebar = document.getElementById("sidebar");
     const toggle = document.getElementById("sidebarToggle");
 
-    // Toggle sidebar size
+    // Toggle sidebar
     toggle.addEventListener("click", () => {
         sidebar.classList.toggle("expanded");
         sidebar.classList.toggle("collapsed");
-        adjustResumeViewer();
     });
 
-    // Highlight active page
+    // Active link detection
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll(".sidebar nav a").forEach(link => {
         if (link.getAttribute("data-page") === currentPage) {
@@ -17,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Slideshow logic
+    // Slideshow
     const slideshow = document.querySelector(".slideshow");
     if (slideshow) {
         const images = [
@@ -33,13 +32,4 @@ document.addEventListener("DOMContentLoaded", function () {
         setInterval(changeBackground, 5000);
         changeBackground();
     }
-
-    // Adjust resume viewer width if present
-    function adjustResumeViewer() {
-        const iframe = document.querySelector(".resume-container iframe");
-        if (iframe) {
-            iframe.style.width = "100%"; // Always take available main width
-        }
-    }
-    adjustResumeViewer();
 });
