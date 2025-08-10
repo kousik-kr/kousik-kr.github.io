@@ -5,36 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kousik Kumar Dutta</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Sidebar -->
     <div class="sidebar expanded" id="sidebar">
         <div class="profile" id="sidebarToggle">
-            <img src="images/profile.jpg" alt="Profile">
+            <img src="profile.jpg" alt="Profile Picture">
         </div>
         <nav>
-            <a href="index.html" data-page="index.html"><i class="fas fa-home"></i><span>Home</span></a>
-            <a href="publications.html" data-page="publications.html"><i class="fas fa-book"></i><span>Publications</span></a>
-            <a href="research.html" data-page="research.html"><i class="fas fa-flask"></i><span>Research Interests</span></a>
-            <a href="teaching.html" data-page="teaching.html"><i class="fas fa-chalkboard-teacher"></i><span>Teaching</span></a>
-            <a href="personal.html" data-page="personal.html"><i class="fas fa-user"></i><span>Personal Info</span></a>
-            <a href="resume.html" data-page="resume.html"><i class="fas fa-file-alt"></i><span>Resume</span></a>
-            <a href="contact.html" data-page="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
+            <a href="index.html" class="active"><i class="fas fa-home"></i> <span>Home</span></a>
+            <a href="publications.html"><i class="fas fa-book"></i> <span>Publications</span></a>
+            <a href="research.html"><i class="fas fa-flask"></i> <span>Research Interests</span></a>
+            <a href="teaching.html"><i class="fas fa-chalkboard-teacher"></i> <span>Teaching</span></a>
+            <a href="personal.html"><i class="fas fa-user"></i> <span>Personal Info</span></a>
+            <a href="resume.html"><i class="fas fa-file"></i> <span>Resume</span></a>
+            <a href="contact.html"><i class="fas fa-envelope"></i> <span>Contact</span></a>
         </nav>
     </div>
 
     <!-- Main Content -->
     <div class="main">
+        <!-- Slideshow -->
         <div class="slideshow" id="slideshow">
             <div class="name-banner">
-                <h1 class="fade-in">Kousik Kumar Dutta</h1>
-                <p id="typing-text"></p>
+                <h1>Kousik Kumar Dutta</h1>
+                <div id="typing-text">Ph.D. Scholar | Spatio-temporal Databases | Navigation Systems | Graph Algorithms</div>
             </div>
             <div class="quote">
                 “Bad luck is not for those who struggle, but for those who never struggle.”
             </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="about-section">
+            <h1>About Me</h1>
+            <p>
+                I am a Ph.D. scholar at IIT Ropar specializing in <b>spatio-temporal databases, navigation systems, graph library, and parallel algorithm design</b>.
+                Proficient in <b>Java</b> programming, I have successfully developed a scalable graph library enabling fast information retrieval.
+                My research reflects diversity, with publications across multiple domains.
+                I am passionate about integrating other cutting-edge technologies into my domain to contribute to the community.
+            </p>
         </div>
     </div>
 
