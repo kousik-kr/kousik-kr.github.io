@@ -5,41 +5,50 @@ body {
 }
 
 .sidebar {
-    width: 220px;
     background: #222;
     color: white;
-    padding: 20px;
     height: 100vh;
     position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: width 0.3s ease;
+    overflow: hidden;
+}
+
+.sidebar.expanded {
+    width: 220px;
+}
+
+.sidebar.collapsed {
+    width: 70px;
 }
 
 .profile {
-    text-align: center;
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
 }
 
 .profile img {
-    width: 140px;             /* Wider for oval effect */
-    height: 180px;            /* Taller for oval effect */
-    border-radius: 50% / 40%; /* Oval shape */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     object-fit: cover;
-    border: 3px solid white;
     background-color: white;
-    padding: 3px; /* Optional padding inside oval */
-    margin-bottom: 10px;
-
-    /* Drop shadow for depth */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
+.profile .name {
+    margin-top: 10px;
+    font-size: 0.9em;
+    transition: opacity 0.3s ease;
+}
 
-.sidebar h2 {
-    font-size: 1.1em;
-    margin: 0;
-    text-align: center;
+.sidebar.collapsed .name {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .sidebar nav {
@@ -48,21 +57,49 @@ body {
 }
 
 .sidebar nav a {
-    display: block;
+    display: flex;
+    align-items: center;
+    padding: 12px;
     color: white;
-    padding: 10px 0;
     text-decoration: none;
-    text-align: center;
-    border-radius: 4px;
+    transition: background 0.3s ease;
 }
 
-.sidebar nav a:hover {
+.sidebar nav a i {
+    font-size: 1.2em;
+    width: 30px;
+    text-align: center;
+}
+
+.sidebar nav a span {
+    transition: opacity 0.3s ease;
+}
+
+.sidebar.collapsed nav a span {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
     background: #444;
 }
 
 .main {
-    margin-left: 220px; /* Ensures content starts after sidebar */
-    flex: 1;
+    transition: margin-left 0.3s ease;
+}
+
+.expanded ~ .main {
+    margin-left: 220px;
+}
+
+.collapsed ~ .main {
+    margin-left: 70px;
+}
+
+.content {
+    padding: 20px;
+    max-width: 900px;
 }
 
 .slideshow {
@@ -72,11 +109,9 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     transition: background-image 1s ease-in-out;
-
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 20px; /* Prevent quote from touching edges */
 }
 
 .quote {
@@ -86,58 +121,22 @@ body {
     font-size: 1.5em;
     text-align: center;
     border-radius: 5px;
-    max-width: 800px; /* Keep it readable */
+    max-width: 800px;
 }
 
-.content {
-    padding: 20px;
+.about-section {
+    padding: 30px;
     max-width: 900px;
 }
 
-.content h1 {
-    margin-bottom: 10px;
+.about-section h1 {
+    margin-bottom: 15px;
     font-size: 2em;
+    color: #333;
 }
 
-.content h2 {
-    margin-top: 20px;
+.about-section p {
+    font-size: 1.15em;
+    line-height: 1.6;
     color: #444;
-}
-
-.content ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-
-.content li {
-    margin-bottom: 10px;
-    line-height: 1.5;
-}
-
-a {
-    color: #1e90ff;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-nav a.active {
-    background: #444;
-}
-
-.content p {
-    font-size: 1.1em;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.content i {
-    color: #1e90ff;
-    font-size: 1.2em;
-    width: 20px;
-    text-align: center;
 }
