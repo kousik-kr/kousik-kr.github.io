@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+}
+
+.sidebar {
+    width: 200px;
+    background: #222;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 10px 0;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background: #444;
+}
+
+.main {
+    margin-left: 200px;
+    flex: 1;
+}
+
+.slideshow {
+    position: relative;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quote {
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 20px;
+    font-size: 1.5em;
+    text-align: center;
+    border-radius: 5px;
+}
