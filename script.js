@@ -1,17 +1,22 @@
-const images = [
-    'images/bg1.jpg',
-    'images/bg2.jpg',
-    'images/bg3.jpg',
-    'images/bg4.jpg'
-];
+document.addEventListener("DOMContentLoaded", function () {
+    const images = [
+        "images/bg1.jpg",
+        "images/bg2.jpg",
+        "images/bg3.jpg",
+        "images/bg4.jpg"
+    ];
 
-let currentIndex = 0;
-const slideshow = document.querySelector('.slideshow');
+    let currentIndex = 0;
+    const slideshow = document.querySelector(".slideshow");
 
-function changeBackground() {
-    slideshow.style.backgroundImage = `url(${images[currentIndex]})`;
-    currentIndex = (currentIndex + 1) % images.length;
-}
+    function changeBackground() {
+        slideshow.style.backgroundImage = `url('${images[currentIndex]}')`;
+        currentIndex = (currentIndex + 1) % images.length;
+    }
 
-setInterval(changeBackground, 5000); // Change every 5s
-changeBackground(); // Initial load
+    // Change every 5 seconds
+    setInterval(changeBackground, 5000);
+
+    // Load first image immediately
+    changeBackground();
+});
