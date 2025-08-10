@@ -120,6 +120,7 @@ body {
 /* ===== Slideshow ===== */
 .slideshow {
     width: 100%;
+    height: 100vh
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -216,7 +217,7 @@ body {
 }
 
 /* ===== Responsive for Mobile =====*/ 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .main {
         margin-left: 0 !important;
         width: 100% !important;
@@ -233,7 +234,7 @@ body {
     .sidebar.show {
         left: 0;
     }
-}
+} */
 /* ===== Resume toolbar: modern, sticky, rounded buttons ===== */
 .resume-container {
     display: flex;
