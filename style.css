@@ -96,8 +96,7 @@ body {
 /* ===== Main Content ===== */
 .main {
     transition: margin-left 0.3s ease, width 0.3s ease;
-    min-height: 100vh;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .expanded ~ .main {
@@ -235,10 +234,10 @@ width: calc(100% - var(--sidebar-collapsed));
 
 /* Also ensure the typing line doesn’t overflow */
 #typing-text {
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis; /* optional: show ellipsis if too long */
-max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* optional: show ellipsis if too long */
+    max-width: 100%;
 }
 
 /* ===== Fade In Animation ===== */
