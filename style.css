@@ -1,9 +1,15 @@
+:root {
+    --sidebar-expanded: 220px;
+    --sidebar-collapsed: 70px;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     display: flex;
 }
 
+/* ===== Sidebar ===== */
 .sidebar {
     background: #222;
     color: white;
@@ -17,11 +23,11 @@ body {
 }
 
 .sidebar.expanded {
-    width: 220px;
+    width: var(--sidebar-expanded);
 }
 
 .sidebar.collapsed {
-    width: 70px;
+    width: var(--sidebar-collapsed);
 }
 
 .profile {
@@ -51,6 +57,7 @@ body {
     pointer-events: none;
 }
 
+/* ===== Navigation ===== */
 .sidebar nav {
     margin-top: 20px;
     width: 100%;
@@ -85,36 +92,44 @@ body {
     background: #444;
 }
 
+/* ===== Main Content ===== */
 .main {
-    transition: margin-left 0.3s ease;
+    transition: margin-left 0.3s ease, width 0.3s ease;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .expanded ~ .main {
-    margin-left: 220px;
+    margin-left: var(--sidebar-expanded);
+    width: calc(100% - var(--sidebar-expanded));
 }
 
 .collapsed ~ .main {
-    margin-left: 70px;
+    margin-left: var(--sidebar-collapsed);
+    width: calc(100% - var(--sidebar-collapsed));
 }
 
+/* ===== Content Wrapper ===== */
 .content {
     padding: 20px;
     max-width: 900px;
 }
 
+/* ===== Slideshow ===== */
 .slideshow {
-    width: 100%;                /* Fill the main content width */
-    height: 100vh;               /* Full height of the viewport */
-    background-size: cover;      /* Scale image to cover area */
-    background-position: center; /* Center the image */
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     transition: background-image 1s ease-in-out;
-
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
+/* ===== Quote ===== */
 .quote {
     background: rgba(0,0,0,0.5);
     color: white;
@@ -125,6 +140,7 @@ body {
     max-width: 800px;
 }
 
+/* ===== About Section ===== */
 .about-section {
     padding: 30px;
     max-width: 900px;
@@ -146,7 +162,7 @@ body {
 .name-banner {
     text-align: center;
     padding: 30px 20px;
-    background: rgba(255, 255, 255, 0.8); /* White transparent */
+    background: rgba(255, 255, 255, 0.8); /* Transparent white background */
     color: #0a2a66; /* Navy blue text */
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
@@ -179,26 +195,22 @@ body {
     }
 }
 
-/* ===== Slideshow ===== */
-.slideshow {
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: background-image 1s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+/* ===== Responsive for Mobile ===== */
+@media (max-width: 768px) {
+    .main {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
 
-.quote {
-    background: rgba(0,0,0,0.5);
-    color: white;
-    padding: 20px;
-    font-size: 1.5em;
-    text-align: center;
-    border-radius: 5px;
-    max-width: 800px;
+    .sidebar {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        height: 100%;
+        z-index: 1000;
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
 }
