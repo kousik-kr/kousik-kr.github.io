@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // ===== Typing Effect =====
 document.addEventListener("DOMContentLoaded", function () {
-    const text = "Ph.D. Scholar | Spatio-temporal Databases | Navigation Systems | Graph Algorithms";
+    const text = "";
     const typingElement = document.getElementById("typing-text");
     if (!typingElement) return; // Only run on index page
     let index = 0;
