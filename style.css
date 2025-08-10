@@ -129,6 +129,17 @@ body {
     align-items: center;
 }
 
+/* Centered inner container that keeps content away from edges */
+.slideshow-inner {
+width: 100%;
+max-width: 1100px; /* adjust to taste */
+padding: 0 16px; /* breathing room on sides */
+box-sizing: border-box;
+margin: 0 auto; /* center */
+display: flex;
+flex-direction: column;
+align-items: center;
+}
 /* ===== Quote ===== */
 .quote {
     background: rgba(0,0,0,0.5);
@@ -180,6 +191,8 @@ body {
 /* ===== Name Banner ===== */
 .name-banner {
     text-align: center;
+    max-width: 100%;
+    overflow: hidden;
     padding: 30px 20px;
     background: rgba(255, 255, 255, 0.8); /* Transparent white background */
     color: #0a2a66; /* Navy blue text */
