@@ -151,3 +151,21 @@ document.getElementById('zoom_out').addEventListener('click', function () {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const aboutSection = document.querySelector('.about-section');
+
+    function revealAboutSection() {
+        const sectionTop = aboutSection.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        // When top of section is within viewport
+        if (sectionTop < windowHeight - 60) { // adjust threshold if desired
+            aboutSection.classList.add('visible');
+            window.removeEventListener('scroll', revealAboutSection); // only reveal once
+        }
+    }
+
+    window.addEventListener('scroll', revealAboutSection);
+    // Reveal right away if already visible on load
+    revealAboutSection();
+});
