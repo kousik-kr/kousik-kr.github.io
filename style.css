@@ -207,6 +207,26 @@ body {
     overflow: hidden;
 }
 
+/* Prevent name-banner content from going under the sidebar */
+.sidebar.expanded ~ .main .name-banner,
+.main.expanded .name-banner {
+width: calc(100% - var(--sidebar-expanded));
+margin-left: 0; /* already offset by .main margin */
+}
+
+.sidebar.collapsed ~ .main .name-banner,
+.main.collapsed .name-banner {
+width: calc(100% - var(--sidebar-collapsed));
+}
+
+/* Also ensure the typing line doesn’t overflow */
+#typing-text {
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis; /* optional: show ellipsis if too long */
+max-width: 100%;
+}
+
 /* ===== Fade In Animation ===== */
 @keyframes fadeIn {
     to {
