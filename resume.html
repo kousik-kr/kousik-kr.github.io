@@ -7,56 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        .resume-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh; /* Full height */
-            width: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        .resume-container iframe {
-            flex: 1;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .download-bar {
-            width: 100%;
-            background: #f5f5f5;
-            padding: 10px;
-            text-align: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-            z-index: 10;
-        }
-
-        .download-btn {
-            padding: 8px 15px;
-            font-size: 1em;
-            background: #1e90ff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .download-btn:hover {
-            background: #0077cc;
-        }
-
-        /* Remove padding from main so iframe can fill completely */
-        .main {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            padding: 0;
-            margin: 0;
-        }
-    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
 </head>
 <body>
     <!-- Sidebar -->
@@ -85,7 +36,15 @@
             </a>
         </div>
         <div class="resume-container">
-            <iframe src="docs/My_CV.pdf"></iframe>
+            <div class="resume-toolbar">
+                <button id="prev">⬅ Prev</button>
+                <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+                <button id="next">Next ➡</button>
+                <button id="zoom_in">🔍+</button>
+                <button id="zoom_out">🔍-</button>
+                <a href="My_CV.pdf" download class="download-btn">⬇ Download PDF</a>
+            </div>
+            <canvas id="resume-canvas"></canvas>
         </div>
     </div>
 
