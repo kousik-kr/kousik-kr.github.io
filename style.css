@@ -151,15 +151,15 @@ body {
 }
 
 /* ===== About Section ===== */
-.about-section {
+/* .about-section {
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.7s ease, transform 0.7s ease;
-}
-/* .about-section {    
+} */
+ .about-section {    
     padding: 30px;    
     max-width: 900px
- ;} */
+ ;} 
 .about-section h1 {   
     margin-bottom: 15px;    
     font-size: 2em;    
@@ -223,11 +223,11 @@ body {
     }
 }
 
-/* ===== Responsive for Mobile ===== */
+/* /* ===== Responsive for Mobile ===== 
 @media (max-width: 768px) {
     .sidebar {
         left: -100%;
-        width: var(--sidebar-expanded); /* Keep width for transition */
+        width: var(--sidebar-expanded); /* Keep width for transition 
     }
     .sidebar.show {
         left: 0;
@@ -239,7 +239,7 @@ body {
         width: 100% !important;
     }
 }
-
+ */
 /* ===== Resume toolbar: modern, sticky, rounded buttons ===== */
 .resume-container {
     display: flex;
