@@ -169,3 +169,19 @@ document.addEventListener("DOMContentLoaded", function() {
     // Reveal right away if already visible on load
     revealAboutSection();
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+const aboutContent = document.querySelector('.about-section .about-content');
+if (!aboutContent) return;
+
+const observer = new IntersectionObserver((entries, obs) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+aboutContent.classList.add('visible');
+obs.unobserve(aboutContent);
+}
+});
+}, { threshold: 0.15 });
+
+observer.observe(aboutContent);
+});
