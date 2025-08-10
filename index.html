@@ -7,67 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        /* Name Banner Styles */
-        .name-banner {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(to right, #1e3c72, #2a5298);
-            color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            margin-bottom: 30px;
-        }
-
-        .name-banner h1 {
-            font-size: 2.5em;
-            margin: 0;
-            font-weight: 700;
-            letter-spacing: 2px;
-            opacity: 0;
-            animation: fadeIn 2s forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        #typing-text {
-            margin-top: 10px;
-            font-size: 1.1em;
-            font-style: italic;
-            opacity: 0.9;
-            border-right: 2px solid white;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-
-        /* Slideshow Styling */
-        .slideshow {
-            width: 100%;
-            height: 100vh;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            transition: background-image 1s ease-in-out;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .quote {
-            background: rgba(0,0,0,0.5);
-            color: white;
-            padding: 20px;
-            font-size: 1.5em;
-            text-align: center;
-            border-radius: 5px;
-            max-width: 800px;
-        }
-    </style>
 </head>
 <body>
     <!-- Sidebar -->
@@ -101,44 +40,5 @@
     </div>
 
     <script src="script.js"></script>
-    <script>
-        // Typing effect
-        document.addEventListener("DOMContentLoaded", function () {
-            const text = "Ph.D. Scholar | Spatio-temporal Databases | Navigation Systems | Graph Algorithms";
-            const typingElement = document.getElementById("typing-text");
-            let index = 0;
-
-            function typeEffect() {
-                if (index < text.length) {
-                    typingElement.textContent += text.charAt(index);
-                    index++;
-                    setTimeout(typeEffect, 50);
-                } else {
-                    typingElement.style.borderRight = "none";
-                }
-            }
-
-            setTimeout(typeEffect, 2000); // wait for fade-in
-        });
-
-        // Background Slideshow
-        const slideshow = document.getElementById("slideshow");
-        const images = [
-            "images/bg1.jpg",
-            "images/bg2.jpg",
-            "images/bg3.jpg",
-            "images/bg4.jpg"
-        ];
-        let currentIndex = 0;
-
-        function changeBackground() {
-            slideshow.style.backgroundImage = `url('${images[currentIndex]}')`;
-            currentIndex = (currentIndex + 1) % images.length;
-        }
-
-        // Start slideshow
-        changeBackground(); // first image
-        setInterval(changeBackground, 5000); // change every 5 sec
-    </script>
 </body>
 </html>
