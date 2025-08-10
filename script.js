@@ -42,6 +42,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!typingElement) return; // Only run on index page
     let index = 0;
 
+    // Make sure to clear the text first
+    typingElement.textContent = "";
+
     function typeEffect() {
         if (index < text.length) {
             typingElement.textContent += text.charAt(index);
@@ -54,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setTimeout(typeEffect, 2000); // wait for fade-in
 });
+
 
 // ===== Background Slideshow =====
 const slideshow = document.getElementById("slideshow");
