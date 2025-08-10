@@ -6,7 +6,8 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    display: flex;
+    /* Remove display:flex; from body, use layout on children instead */
+    background: #f4f4f4;
 }
 
 /* ===== Sidebar ===== */
@@ -15,11 +16,14 @@ body {
     color: white;
     height: 100vh;
     position: fixed;
+    left: 0;
+    top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     transition: width 0.3s ease;
     overflow: hidden;
+    z-index: 100; /* always above .main for mobile menu */
 }
 
 .sidebar.expanded {
@@ -94,17 +98,22 @@ body {
 
 /* ===== Main Content ===== */
 .main {
+    min-height: 100vh;
+    background: #f4f4f4;
     transition: margin-left 0.3s ease, width 0.3s ease;
-    height: 100vh;
-    overflow: hidden;
+    /* The margin and width will be set by sidebar state via class and sibling selector */
+    overflow-x: auto;
+    padding-bottom: 40px;
 }
 
-.expanded ~ .main {
+.sidebar.expanded ~ .main,
+.main.expanded {
     margin-left: var(--sidebar-expanded);
     width: calc(100% - var(--sidebar-expanded));
 }
 
-.collapsed ~ .main {
+.sidebar.collapsed ~ .main,
+.main.collapsed {
     margin-left: var(--sidebar-collapsed);
     width: calc(100% - var(--sidebar-collapsed));
 }
@@ -113,12 +122,12 @@ body {
 .content {
     padding: 20px;
     max-width: 900px;
+    margin: 0 auto;
 }
 
 /* ===== Slideshow ===== */
 .slideshow {
     width: 100%;
-    height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -138,18 +147,23 @@ body {
     text-align: center;
     border-radius: 5px;
     max-width: 800px;
+    margin: 0 auto 40px auto;
 }
 
 /* ===== About Section ===== */
 .about-section {
-    padding: 30px;
+    background: #fff;
+    margin: 40px auto 0 auto;
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     max-width: 900px;
 }
 
 .about-section h1 {
     margin-bottom: 15px;
     font-size: 2em;
-    color: #333;
+    color: #222;
 }
 
 .about-section p {
@@ -197,131 +211,118 @@ body {
 
 /* ===== Responsive for Mobile ===== */
 @media (max-width: 768px) {
-    .main {
-        margin-left: 0 !important;
-        width: 100% !important;
-    }
-
     .sidebar {
-        position: fixed;
         left: -100%;
-        top: 0;
-        height: 100%;
-        z-index: 1000;
+        width: var(--sidebar-expanded); /* Keep width for transition */
     }
-
     .sidebar.show {
         left: 0;
+    }
+    .main,
+    .main.expanded,
+    .main.collapsed {
+        margin-left: 0 !important;
+        width: 100% !important;
     }
 }
 
 /* ===== Resume toolbar: modern, sticky, rounded buttons ===== */
 .resume-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  background: #f6f8fb;
-  overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background: #f6f8fb;
+    overflow: hidden;
 }
 
-/* Sticky toolbar that stays at the top of the main area */
 .resume-toolbar {
-  position: sticky;
-  top: 0;
-  z-index: 60;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255,255,255,0.95); /* slight translucency */
-  padding: 10px 12px;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 2px 8px rgba(10,42,102,0.06);
-  width: 100%;
-  flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.95);
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 2px 8px rgba(10,42,102,0.06);
+    width: 100%;
+    flex-shrink: 0;
 }
 
-/* Unified button/link appearance */
 .resume-toolbar button,
 .resume-toolbar .download-btn,
 .resume-toolbar a.download-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #0a2a66;
-  color: #fff;
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: transform .08s ease, background .12s ease, box-shadow .12s ease;
-  box-shadow: 0 2px 6px rgba(10,42,102,0.12);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #0a2a66;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: transform .08s ease, background .12s ease, box-shadow .12s ease;
+    box-shadow: 0 2px 6px rgba(10,42,102,0.12);
 }
 
 .resume-toolbar button:hover,
 .resume-toolbar .download-btn:hover {
-  transform: translateY(-2px);
-  background: #092553;
-  box-shadow: 0 6px 18px rgba(10,42,102,0.12);
+    transform: translateY(-2px);
+    background: #092553;
+    box-shadow: 0 6px 18px rgba(10,42,102,0.12);
 }
 
-/* Icon-only small buttons (if you want small square icons) */
 .resume-toolbar .icon-btn {
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  justify-content: center;
-  border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 8px;
 }
 
-/* Page counter styling */
 .resume-toolbar span {
-  font-size: 0.98rem;
-  color: #1f2b4d;
-  margin: 0 6px;
+    font-size: 0.98rem;
+    color: #1f2b4d;
+    margin: 0 6px;
 }
 
-/* Canvas styling: centered, responsive, with max width */
 #resume-canvas {
-  display: block;
-  margin: 12px auto;
-  max-width: calc(100% - 40px); /* small horizontal margin */
-  width: auto;
-  height: auto;
-  box-shadow: 0 8px 30px rgba(10,42,102,0.08);
-  border-radius: 4px;
-  background: white;
+    display: block;
+    margin: 12px auto;
+    max-width: calc(100% - 40px);
+    width: auto;
+    height: auto;
+    box-shadow: 0 8px 30px rgba(10,42,102,0.08);
+    border-radius: 4px;
+    background: white;
 }
 
-/* On very wide screens cap the canvas width for readability */
 @media (min-width: 1200px) {
-  #resume-canvas {
-    max-width: 1100px;
-  }
+    #resume-canvas {
+        max-width: 1100px;
+    }
 }
 
-/* Mobile: toolbar wraps and buttons become touch-friendly */
 @media (max-width: 768px) {
-  .resume-toolbar {
-    padding: 8px;
-    gap: 8px;
-  }
-
-  .resume-toolbar button,
-  .resume-toolbar .download-btn {
-    flex: 1 1 45%;
-    min-width: 110px;
-    font-size: 0.9rem;
-  }
-
-  /* icon-only buttons stay square */
-  .resume-toolbar .icon-btn {
-    min-width: 48px;
-    width: 48px;
-    height: 48px;
-  }
+    .resume-toolbar {
+        padding: 8px;
+        gap: 8px;
+    }
+    .resume-toolbar button,
+    .resume-toolbar .download-btn {
+        flex: 1 1 45%;
+        min-width: 110px;
+        font-size: 0.9rem;
+    }
+    .resume-toolbar .icon-btn {
+        min-width: 48px;
+        width: 48px;
+        height: 48px;
+    }
 }
