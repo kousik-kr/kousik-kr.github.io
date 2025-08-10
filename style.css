@@ -14,7 +14,6 @@ body {
 .sidebar {
     background: #222;
     color: white;
-    height: 100vh;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -96,7 +95,8 @@ body {
 /* ===== Main Content ===== */
 .main {
     transition: margin-left 0.3s ease, width 0.3s ease;
-    overflow: hidden;
+    min-height: auto
+    overflow: visible;
 }
 
 .expanded ~ .main {
@@ -131,14 +131,14 @@ body {
 
 /* Centered inner container that keeps content away from edges */
 .slideshow-inner {
-width: 100%;
-max-width: 1100px; /* adjust to taste */
-padding: 0 16px; /* breathing room on sides */
-box-sizing: border-box;
-margin: 0 auto; /* center */
-display: flex;
-flex-direction: column;
-align-items: center;
+    width: 100%;
+    max-width: 1100px; /* adjust to taste */
+    padding: 0 16px; /* breathing room on sides */
+    box-sizing: border-box;
+    margin: 0 auto; /* center */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 /* ===== Quote ===== */
 .quote {
