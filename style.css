@@ -99,7 +99,7 @@ body {
 .main {
     transition: margin-left 0.3s ease, width 0.3s ease;
     height: 100vh;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .expanded ~ .main {
