@@ -5,27 +5,63 @@ body {
 }
 
 .sidebar {
-    width: 200px;
+    width: 220px;
     background: #222;
     color: white;
     padding: 20px;
     height: 100vh;
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.sidebar a {
+.profile {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile img {
+    width: 140px;             /* Wider for oval effect */
+    height: 180px;            /* Taller for oval effect */
+    border-radius: 50% / 40%; /* Oval shape */
+    object-fit: cover;
+    border: 3px solid white;
+    background-color: white;
+    padding: 3px; /* Optional padding inside oval */
+    margin-bottom: 10px;
+
+    /* Drop shadow for depth */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+.sidebar h2 {
+    font-size: 1.1em;
+    margin: 0;
+    text-align: center;
+}
+
+.sidebar nav {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.sidebar nav a {
     display: block;
     color: white;
     padding: 10px 0;
     text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
 }
 
-.sidebar a:hover {
+.sidebar nav a:hover {
     background: #444;
 }
 
 .main {
-    margin-left: 200px;
+    margin-left: 220px; /* Ensures content starts after sidebar */
     flex: 1;
 }
 
@@ -38,6 +74,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 20px; /* Prevent quote from touching edges */
 }
 
 .quote {
@@ -47,4 +84,5 @@ body {
     font-size: 1.5em;
     text-align: center;
     border-radius: 5px;
+    max-width: 800px; /* Keep it readable */
 }
