@@ -7,6 +7,39 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .resume-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: calc(100vh - 40px);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .resume-container iframe {
+            flex: 1;
+            width: 100%;
+            max-width: 1200px; /* Optional: limit max width on large screens */
+            border: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .resume-container .download-btn {
+            padding: 10px 15px;
+            font-size: 1em;
+            background: #1e90ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        .resume-container .download-btn:hover {
+            background: #0077cc;
+        }
+    </style>
 </head>
 <body>
     <!-- Sidebar -->
@@ -27,20 +60,16 @@
 
     <!-- Main Content -->
     <div class="main">
-        <div class="content">
-            <h1>My Resume</h1>
-            <p>
-                <a href="docs/My_CV.pdf" download>
-                    <button style="padding:10px 15px; font-size:1em; background:#1e90ff; color:white; border:none; border-radius:5px; cursor:pointer;">
-                        Download Resume (PDF)
-                    </button>
-                </a>
-            </p>
-
-            <!-- Embedded PDF Viewer -->
-            <iframe src="docs/My_CV.pdf" width="100%" height="800px" style="border:none;"></iframe>
+        <div class="resume-container">
+            <a href="docs/My_CV.pdf" download>
+                <button class="download-btn">
+                    <i class="fas fa-download"></i> Download Resume (PDF)
+                </button>
+            </a>
+            <iframe src="docs/My_CV.pdf"></iframe>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
