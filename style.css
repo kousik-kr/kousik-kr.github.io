@@ -156,7 +156,20 @@ body {
     transform: translateY(40px);
     transition: opacity 0.7s ease, transform 0.7s ease;
 }
-
+/* .about-section {    
+    padding: 30px;    
+    max-width: 900px
+ ;} */
+.about-section h1 {   
+    margin-bottom: 15px;    
+    font-size: 2em;    
+    color: #333
+;}
+.about-section p {    
+    font-size: 1.15em;    
+    line-height: 1.6;    
+    color: #444
+;}
 /* When about-section is visible */
 .about-section.visible {
     opacity: 1;
