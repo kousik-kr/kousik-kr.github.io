@@ -125,3 +125,17 @@ nav a.active {
     background: #444;
 }
 
+.content p {
+    font-size: 1.1em;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.content i {
+    color: #1e90ff;
+    font-size: 1.2em;
+    width: 20px;
+    text-align: center;
+}
