@@ -13,6 +13,7 @@ body {
 /* ===== Sidebar ===== */
 .sidebar {
     background: #222;
+    height: 100vh;
     color: white;
     position: fixed;
     display: flex;
