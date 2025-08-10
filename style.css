@@ -23,7 +23,6 @@ body {
     align-items: center;
     transition: width 0.3s ease;
     overflow: hidden;
-    z-index: 100; /* always above .main for mobile menu */
 }
 
 .sidebar.expanded {
@@ -97,43 +96,25 @@ body {
 }
 
 /* ===== Main Content ===== */
-.slideshow {
-width: 100%;
-height: 100vh; /* full page height /
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-transition: background-image 1s ease-in-out;
-display: flex;
-flex-direction: column;
-justify-content: center; / center content vertically /
-align-items: center; / center content horizontally /
-padding: 0 16px; / small side padding for mobile */
-}
-
-.quote {
-    background: rgba(0,0,0,0.5);
-    color: #fff;
-    padding: 20px;
-    font-size: 1.5em;
-    text-align: center;
-    border-radius: 5px;
-    max-width: 800px;
-    margin-top: 20px; /* space below the name banner */
-}
-
 .main {
-    min-height: 100vh;
-    background: #f4f4f4;
     transition: margin-left 0.3s ease, width 0.3s ease;
-    overflow: visible; /* allow content after slideshow */
-    padding-bottom: 40px;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.expanded ~ .main {
+    margin-left: var(--sidebar-expanded);
+    width: calc(100% - var(--sidebar-expanded));
+}
+
+.collapsed ~ .main {
+    margin-left: var(--sidebar-collapsed);
+    width: calc(100% - var(--sidebar-collapsed));
 }
 /* ===== Content Wrapper ===== */
 .content {
     padding: 20px;
     max-width: 900px;
-    margin: 0 auto;
 }
 
 /* ===== Slideshow ===== */
@@ -234,23 +215,25 @@ padding: 0 16px; / small side padding for mobile */
     }
 }
 
-/* /* ===== Responsive for Mobile ===== 
+/* ===== Responsive for Mobile =====*/ 
 @media (max-width: 768px) {
-    .sidebar {
-        left: -100%;
-        width: var(--sidebar-expanded); /* Keep width for transition 
-    }
-    .sidebar.show {
-        left: 0;
-    }
-    .main,
-    .main.expanded,
-    .main.collapsed {
+    .main {
         margin-left: 0 !important;
         width: 100% !important;
     }
+
+    .sidebar {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        height: 100%;
+        z-index: 1000;
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
 }
- */
 /* ===== Resume toolbar: modern, sticky, rounded buttons ===== */
 .resume-container {
     display: flex;
