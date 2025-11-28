@@ -1,18 +1,45 @@
-// ===== Sidebar Toggle =====
+// ===== Enhanced Sidebar Toggle with Multiple Features =====
 document.addEventListener("DOMContentLoaded", function () {
     const sidebar = document.getElementById("sidebar");
-    const main = document.getElementById("main");
     const toggle = document.getElementById("sidebarToggle");
+    let isExpanded = localStorage.getItem('sidebarExpanded') !== 'false'; // Default to expanded
 
-    // Toggle sidebar
-    if (toggle && sidebar && main) {
+    // Initialize sidebar state from localStorage
+    if (sidebar) {
+        if (isExpanded) {
+            sidebar.classList.add("expanded");
+            sidebar.classList.remove("collapsed");
+        } else {
+            sidebar.classList.add("collapsed");
+            sidebar.classList.remove("expanded");
+        }
+    }
+
+    // Toggle sidebar on click
+    if (toggle && sidebar) {
         toggle.addEventListener("click", () => {
+            isExpanded = !isExpanded;
             sidebar.classList.toggle("expanded");
             sidebar.classList.toggle("collapsed");
-            main.classList.toggle("expanded");
-            main.classList.toggle("collapsed");
+            
+            // Save state to localStorage
+            localStorage.setItem('sidebarExpanded', isExpanded);
         });
     }
+
+    // Auto-collapse on mobile
+    function handleResize() {
+        if (window.innerWidth <= 768 && sidebar) {
+            sidebar.classList.remove("expanded");
+            sidebar.classList.add("collapsed");
+        } else if (isExpanded && sidebar) {
+            sidebar.classList.add("expanded");
+            sidebar.classList.remove("collapsed");
+        }
+    }
+    
+    window.addEventListener('resize', handleResize);
+    handleResize();
 
     // Active link detection
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
@@ -23,6 +50,39 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             link.classList.remove("active");
         }
+    });
+
+    // Add keyboard navigation (Alt + S to toggle sidebar)
+    document.addEventListener('keydown', function(e) {
+        if (e.altKey && e.key === 's') {
+            e.preventDefault();
+            if (toggle) toggle.click();
+        }
+    });
+
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768 && sidebar) {
+            const isClickInsideSidebar = sidebar.contains(e.target);
+            if (!isClickInsideSidebar && sidebar.classList.contains('expanded')) {
+                sidebar.classList.remove('expanded');
+                sidebar.classList.add('collapsed');
+            }
+        }
+    });
+
+    // Add smooth hover effects to navigation items
+    const navLinks = document.querySelectorAll('.sidebar nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('mouseenter', function() {
+            if (sidebar && sidebar.classList.contains('expanded')) {
+                this.style.paddingLeft = '35px';
+            }
+        });
+        
+        link.addEventListener('mouseleave', function() {
+            this.style.paddingLeft = '25px';
+        });
     });
 });
 
