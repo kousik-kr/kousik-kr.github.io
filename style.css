@@ -34,7 +34,7 @@
     --bg-gradient-2: linear-gradient(135deg, #415a77 0%, #778da9 100%);
     --bg-gradient-3: linear-gradient(135deg, #00b4d8 0%, #0096c7 100%);
     --bg-gradient-accent: linear-gradient(135deg, #ff8500 0%, #ffb703 100%);
-    --bg-gradient-hero: linear-gradient(180deg, rgba(13, 27, 42, 0.95) 0%, rgba(65, 90, 119, 0.85) 100%);
+    --bg-gradient-hero: linear-gradient(180deg, rgba(13, 27, 42, 0.65) 0%, rgba(65, 90, 119, 0.55) 100%);
     
     /* Shadows with Blue Tints */
     --shadow-sm: 0 2px 4px rgba(13, 27, 42, 0.08);
