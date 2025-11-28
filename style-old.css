@@ -319,7 +319,6 @@ body {
     z-index: 2;
     position: relative;
 }
-
 /* ===== Quote ===== */
 .quote {
     background: rgba(255, 255, 255, 0.95);
@@ -400,37 +399,51 @@ body {
     text-align: center;
     max-width: 100%;
     overflow: hidden;
-    padding: 40px 30px;
-    background: rgba(255, 255, 255, 0.95);
-    color: var(--primary-color);
-    border-radius: 20px;
-    box-shadow: var(--shadow-lg);
-    margin-bottom: 30px;
-    border: 2px solid rgba(255, 107, 53, 0.2);
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.8); /* Transparent white background */
+    color: #0a2a66; /* Navy blue text */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
 }
 
 .name-banner h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     margin: 0;
     font-weight: 700;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     opacity: 0;
     animation: fadeIn 2s forwards;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
 #typing-text {
-    margin-top: 15px;
-    font-size: 1.2em;
+    margin-top: 10px;
+    font-size: 1.1em;
     font-style: italic;
     opacity: 0.9;
-    border-right: 2px solid var(--primary-color);
+    border-right: 2px solid #0a2a66; /* Navy blue cursor */
     white-space: nowrap;
     overflow: hidden;
-    color: var(--text-dark);
+}
+
+/* Prevent name-banner content from going under the sidebar */
+.sidebar.expanded ~ .main .name-banner,
+.main.expanded .name-banner {
+width: calc(100% - var(--sidebar-expanded));
+margin-left: 0; /* already offset by .main margin */
+}
+
+.sidebar.collapsed ~ .main .name-banner,
+.main.collapsed .name-banner {
+width: calc(100% - var(--sidebar-collapsed));
+}
+
+/* Also ensure the typing line doesn’t overflow */
+#typing-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* optional: show ellipsis if too long */
+    max-width: 100%;
 }
 
 /* ===== Fade In Animation ===== */
@@ -440,332 +453,32 @@ body {
     }
 }
 
-/* ===== Publication Cards ===== */
-.publications-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
-}
+/* ===== Responsive for Mobile =====*/ 
+/* @media (max-width: 768px) {
+    .main {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
 
-.publication-card {
-    background: var(--bg-white);
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: var(--shadow-md);
-    transition: all 0.3s ease;
-    border-left: 4px solid var(--accent-color);
-}
+    .sidebar {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        height: 100%;
+        z-index: 1000;
+    }
 
-.publication-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-}
-
-.publication-card .pub-type {
-    display: inline-block;
-    background: var(--gradient-accent);
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.85em;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-.publication-card .pub-title {
-    font-size: 1.1em;
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: 10px;
-    line-height: 1.4;
-}
-
-.publication-card .pub-venue {
-    color: var(--text-light);
-    font-style: italic;
-    margin-bottom: 12px;
-}
-
-.publication-card .pub-authors {
-    font-size: 0.95em;
-    color: var(--text-dark);
-    margin-bottom: 15px;
-}
-
-.publication-card .pub-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--primary-color);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 0.9em;
-    transition: all 0.3s ease;
-}
-
-.publication-card .pub-link:hover {
-    background: var(--secondary-color);
-    transform: translateX(5px);
-}
-
-/* ===== Research Cards ===== */
-.research-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.research-card {
-    background: var(--bg-white);
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: var(--shadow-md);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.research-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: var(--gradient-accent);
-}
-
-.research-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-}
-
-.research-card .icon {
-    font-size: 3em;
-    color: var(--accent-color);
-    margin-bottom: 15px;
-}
-
-.research-card h3 {
-    color: var(--primary-color);
-    margin: 15px 0;
-    font-size: 1.4em;
-}
-
-.research-card p {
-    color: var(--text-light);
-    line-height: 1.7;
-}
-
-/* ===== Timeline (Teaching) ===== */
-.timeline {
-    position: relative;
-    padding: 20px 0;
-    margin-top: 30px;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 30px;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: var(--gradient-primary);
-}
-
-.timeline-item {
-    position: relative;
-    padding-left: 70px;
-    margin-bottom: 40px;
-    animation: fadeInUp 0.6s ease;
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: 22px;
-    top: 5px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: var(--accent-color);
-    border: 4px solid var(--bg-light);
-    box-shadow: 0 0 0 4px var(--accent-color);
-}
-
-.timeline-item h2 {
-    color: var(--primary-color);
-    font-size: 1.8em;
-    margin-bottom: 10px;
-}
-
-.timeline-item h3 {
-    color: var(--secondary-color);
-    font-size: 1.3em;
-    margin: 15px 0 10px;
-}
-
-.timeline-item ul {
-    margin-top: 10px;
-}
-
-.timeline-item ul li {
-    background: var(--bg-white);
-    padding: 15px 15px 15px 30px;
-    margin: 10px 0;
-    border-radius: 10px;
-    box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease;
-}
-
-.timeline-item ul li:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateX(10px);
-}
-
-/* ===== Contact Page ===== */
-.contact-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 40px;
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.contact-card {
-    background: var(--bg-white);
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: var(--shadow-md);
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-.contact-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-}
-
-.contact-card i {
-    font-size: 3em;
-    color: var(--accent-color);
-    margin-bottom: 15px;
-}
-
-.contact-card h3 {
-    color: var(--primary-color);
-    margin: 15px 0;
-}
-
-.contact-card a {
-    color: var(--secondary-color);
-    word-break: break-all;
-    display: block;
-    margin-top: 10px;
-}
-
-/* ===== Personal Info ===== */
-.personal-info-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px;
-}
-
-.profile-photo {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 30px;
-    box-shadow: var(--shadow-lg);
-    border: 5px solid var(--accent-color);
-    transition: all 0.3s ease;
-}
-
-.profile-photo:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
-}
-
-.profile-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    width: 100%;
-    max-width: 1100px;
-}
-
-.info-section {
-    background: var(--bg-white);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: var(--shadow-md);
-    transition: all 0.3s ease;
-}
-
-.info-section:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-}
-
-.info-section h2 {
-    margin-bottom: 20px;
-    font-size: 1.5em;
-    color: var(--primary-color);
-    border-bottom: 3px solid var(--accent-color);
-    padding-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.info-section h2 i {
-    color: var(--accent-color);
-}
-
-.info-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.info-section ul li {
-    margin-bottom: 12px;
-    padding-left: 0;
-}
-
-.info-section ul li::before {
-    content: none;
-}
-
-.info-section ul li strong {
-    color: var(--text-dark);
-    font-weight: 600;
-}
-
-/* ===== Resume toolbar ===== */
+    .sidebar.show {
+        left: 0;
+    }
+} */
+/* ===== Resume toolbar: modern, sticky, rounded buttons ===== */
 .resume-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
-    background: var(--bg-light);
+    height: 100vh;
+    background: #f6f8fb;
     overflow: hidden;
 }
 
@@ -775,13 +488,13 @@ body {
     z-index: 60;
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
     align-items: center;
     justify-content: center;
     background: rgba(255,255,255,0.95);
-    padding: 15px;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    box-shadow: var(--shadow-md);
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 2px 8px rgba(10,42,102,0.06);
     width: 100%;
     flex-shrink: 0;
 }
@@ -792,116 +505,48 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: var(--primary-color);
+    background: #0a2a66;
     color: #fff;
-    padding: 10px 16px;
-    border-radius: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
     border: none;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.95rem;
     text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-sm);
+    transition: transform .08s ease, background .12s ease, box-shadow .12s ease;
+    box-shadow: 0 2px 6px rgba(10,42,102,0.12);
 }
 
 .resume-toolbar button:hover,
 .resume-toolbar .download-btn:hover {
     transform: translateY(-2px);
-    background: var(--secondary-color);
-    box-shadow: var(--shadow-md);
+    background: #092553;
+    box-shadow: 0 6px 18px rgba(10,42,102,0.12);
 }
 
 .resume-toolbar .icon-btn {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     padding: 0;
     justify-content: center;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .resume-toolbar span {
-    font-size: 1rem;
-    color: var(--text-dark);
-    margin: 0 8px;
-    font-weight: 500;
+    font-size: 0.98rem;
+    color: #1f2b4d;
+    margin: 0 6px;
 }
 
 #resume-canvas {
     display: block;
-    margin: 20px auto;
+    margin: 12px auto;
     max-width: calc(100% - 40px);
     width: auto;
     height: auto;
-    box-shadow: var(--shadow-lg);
-    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(10,42,102,0.08);
+    border-radius: 4px;
     background: white;
-}
-
-/* ===== Responsive Design ===== */
-@media (max-width: 768px) {
-    .sidebar {
-        width: var(--sidebar-collapsed) !important;
-    }
-    
-    .sidebar.expanded,
-    .sidebar.collapsed {
-        width: var(--sidebar-collapsed) !important;
-    }
-    
-    .main {
-        margin-left: var(--sidebar-collapsed) !important;
-        width: calc(100% - var(--sidebar-collapsed)) !important;
-    }
-    
-    .content {
-        padding: 20px;
-    }
-    
-    .content h1 {
-        font-size: 2em;
-    }
-    
-    .name-banner h1 {
-        font-size: 2em;
-        letter-spacing: 1px;
-    }
-    
-    #typing-text {
-        font-size: 1em;
-    }
-    
-    .publications-grid,
-    .research-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .info-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .timeline::before {
-        left: 15px;
-    }
-    
-    .timeline-item {
-        padding-left: 50px;
-    }
-    
-    .timeline-item::before {
-        left: 7px;
-    }
-    
-    .resume-toolbar {
-        padding: 10px;
-        gap: 8px;
-    }
-    
-    .resume-toolbar button,
-    .resume-toolbar .download-btn {
-        flex: 1 1 45%;
-        min-width: 110px;
-        font-size: 0.9rem;
-    }
 }
 
 @media (min-width: 1200px) {
@@ -910,32 +555,20 @@ body {
     }
 }
 
-/* ===== Scroll Animations ===== */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ===== Custom Scrollbar ===== */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--bg-light);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--secondary-color);
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-color);
+@media (max-width: 768px) {
+    .resume-toolbar {
+        padding: 8px;
+        gap: 8px;
+    }
+    .resume-toolbar button,
+    .resume-toolbar .download-btn {
+        flex: 1 1 45%;
+        min-width: 110px;
+        font-size: 0.9rem;
+    }
+    .resume-toolbar .icon-btn {
+        min-width: 48px;
+        width: 48px;
+        height: 48px;
+    }
 }

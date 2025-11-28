@@ -1,48 +1,39 @@
+// ===== Sidebar Toggle =====
 document.addEventListener("DOMContentLoaded", function () {
     const sidebar = document.getElementById("sidebar");
+    const main = document.getElementById("main");
     const toggle = document.getElementById("sidebarToggle");
 
     // Toggle sidebar
-    toggle.addEventListener("click", () => {
-        sidebar.classList.toggle("expanded");
-        sidebar.classList.toggle("collapsed");
-    });
+    if (toggle && sidebar && main) {
+        toggle.addEventListener("click", () => {
+            sidebar.classList.toggle("expanded");
+            sidebar.classList.toggle("collapsed");
+            main.classList.toggle("expanded");
+            main.classList.toggle("collapsed");
+        });
+    }
 
     // Active link detection
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll(".sidebar nav a").forEach(link => {
-        if (link.getAttribute("data-page") === currentPage) {
+        const href = link.getAttribute("href");
+        if (href === currentPage) {
             link.classList.add("active");
+        } else {
+            link.classList.remove("active");
         }
     });
-
-    // Slideshow
-    const slideshow = document.querySelector(".slideshow");
-    if (slideshow) {
-        const images = [
-            "images/bg1.jpg",
-            "images/bg2.jpg",
-            "images/bg3.jpg",
-            "images/bg4.jpg"
-        ];
-        let currentIndex = 0;
-        function changeBackground() {
-            slideshow.style.backgroundImage = `url('${images[currentIndex]}')`;
-            currentIndex = (currentIndex + 1) % images.length;
-        }
-        setInterval(changeBackground, 5000);
-        changeBackground();
-    }
 });
 
 // ===== Typing Effect =====
 document.addEventListener("DOMContentLoaded", function () {
     const text = "Ph.D. Scholar | Spatio-temporal Databases | Navigation Systems | Graph Algorithms";
     const typingElement = document.getElementById("typing-text");
-    if (!typingElement) return; // Only run on index page
+    
+    if (!typingElement) return;
+    
     let index = 0;
-
-    // Make sure to clear the text first
     typingElement.textContent = "";
 
     function typeEffect() {
@@ -55,133 +46,253 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    setTimeout(typeEffect, 2000); // wait for fade-in
+    setTimeout(typeEffect, 2000);
 });
-
 
 // ===== Background Slideshow =====
-const slideshow = document.getElementById("slideshow");
-if (slideshow) {
-    const images = [
-        "images/bg1.jpg",
-        "images/bg2.jpg",
-        "images/bg3.jpg",
-        "images/bg4.jpg"
-    ];
-    let currentIndex = 0;
+document.addEventListener("DOMContentLoaded", function () {
+    const slideshow = document.getElementById("slideshow");
+    
+    if (slideshow) {
+        const images = [
+            "images/bg1.jpg",
+            "images/bg2.jpg",
+            "images/bg3.jpg",
+            "images/bg4.jpg"
+        ];
+        let currentIndex = 0;
 
-    function changeBackground() {
-        slideshow.style.backgroundImage = `url('${images[currentIndex]}')`;
-        currentIndex = (currentIndex + 1) % images.length;
-    }
+        function changeBackground() {
+            slideshow.style.backgroundImage = `url('${images[currentIndex]}')`;
+            currentIndex = (currentIndex + 1) % images.length;
+        }
 
-    changeBackground(); // first image
-    setInterval(changeBackground, 5000); // every 5 sec
-}
-
-const url = 'My_CV.pdf';
-let pdfDoc = null,
-    pageNum = 1,
-    pageRendering = false,
-    pageNumPending = null,
-    scale = 1.0,
-    canvas = document.getElementById('resume-canvas'),
-    ctx = canvas.getContext('2d');
-
-pdfjsLib.getDocument(url).promise.then(function (pdfDoc_) {
-    pdfDoc = pdfDoc_;
-    document.getElementById('page_count').textContent = pdfDoc.numPages;
-    renderPage(pageNum);
-});
-
-function renderPage(num) {
-    pageRendering = true;
-    pdfDoc.getPage(num).then(function (page) {
-        let viewport = page.getViewport({ scale: scale });
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
-
-        let renderContext = {
-            canvasContext: ctx,
-            viewport: viewport
-        };
-        let renderTask = page.render(renderContext);
-
-        renderTask.promise.then(function () {
-            pageRendering = false;
-            if (pageNumPending !== null) {
-                renderPage(pageNumPending);
-                pageNumPending = null;
-            }
-        });
-    });
-
-    document.getElementById('page_num').textContent = num;
-}
-
-function queueRenderPage(num) {
-    if (pageRendering) {
-        pageNumPending = num;
-    } else {
-        renderPage(num);
-    }
-}
-
-document.getElementById('prev').addEventListener('click', function () {
-    if (pageNum <= 1) return;
-    pageNum--;
-    queueRenderPage(pageNum);
-});
-
-document.getElementById('next').addEventListener('click', function () {
-    if (pageNum >= pdfDoc.numPages) return;
-    pageNum++;
-    queueRenderPage(pageNum);
-});
-
-document.getElementById('zoom_in').addEventListener('click', function () {
-    scale += 0.2;
-    queueRenderPage(pageNum);
-});
-
-document.getElementById('zoom_out').addEventListener('click', function () {
-    if (scale > 0.4) {
-        scale -= 0.2;
-        queueRenderPage(pageNum);
+        changeBackground();
+        setInterval(changeBackground, 5000);
     }
 });
 
+// ===== About Section Reveal Animation =====
 document.addEventListener("DOMContentLoaded", function() {
     const aboutSection = document.querySelector('.about-section');
+    
+    if (!aboutSection) return;
 
     function revealAboutSection() {
         const sectionTop = aboutSection.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
 
-        // When top of section is within viewport
-        if (sectionTop < windowHeight - 60) { // adjust threshold if desired
+        if (sectionTop < windowHeight - 100) {
             aboutSection.classList.add('visible');
-            window.removeEventListener('scroll', revealAboutSection); // only reveal once
+            window.removeEventListener('scroll', revealAboutSection);
         }
     }
 
     window.addEventListener('scroll', revealAboutSection);
-    // Reveal right away if already visible on load
     revealAboutSection();
 });
 
+// ===== About Content Reveal with Intersection Observer =====
 document.addEventListener("DOMContentLoaded", function () {
-const aboutContent = document.querySelector('.about-section .about-content');
-if (!aboutContent) return;
+    const aboutContent = document.querySelector('.about-section .about-content');
+    
+    if (!aboutContent) return;
 
-const observer = new IntersectionObserver((entries, obs) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-aboutContent.classList.add('visible');
-obs.unobserve(aboutContent);
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                aboutContent.classList.add('visible');
+                obs.unobserve(aboutContent);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    observer.observe(aboutContent);
+});
+
+// ===== Fade In Animation for Cards =====
+document.addEventListener("DOMContentLoaded", function() {
+    const cards = document.querySelectorAll('.publication-card, .research-card, .info-section, .contact-card, .timeline-item');
+    
+    if (cards.length === 0) return;
+
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, index * 100);
+                cardObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        cardObserver.observe(card);
+    });
+});
+
+// ===== Smooth Scroll for Internal Links =====
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
+
+// ===== Add Hover Effects to Publication Links =====
+document.addEventListener("DOMContentLoaded", function() {
+    const pubLinks = document.querySelectorAll('.pub-link');
+    
+    pubLinks.forEach(link => {
+        link.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateX(8px)';
+        });
+        
+        link.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateX(0)';
+        });
+    });
+});
+
+// ===== PDF Resume Viewer (if needed) =====
+if (typeof pdfjsLib !== 'undefined') {
+    const url = 'docs/My_CV.pdf';
+    let pdfDoc = null,
+        pageNum = 1,
+        pageRendering = false,
+        pageNumPending = null,
+        scale = 1.0,
+        canvas = document.getElementById('resume-canvas'),
+        ctx = canvas ? canvas.getContext('2d') : null;
+
+    if (canvas && ctx) {
+        pdfjsLib.getDocument(url).promise.then(function (pdfDoc_) {
+            pdfDoc = pdfDoc_;
+            const pageCount = document.getElementById('page_count');
+            if (pageCount) {
+                pageCount.textContent = pdfDoc.numPages;
+            }
+            renderPage(pageNum);
+        }).catch(function(error) {
+            console.log('PDF loading error:', error);
+        });
+
+        function renderPage(num) {
+            pageRendering = true;
+            pdfDoc.getPage(num).then(function (page) {
+                let viewport = page.getViewport({ scale: scale });
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                let renderContext = {
+                    canvasContext: ctx,
+                    viewport: viewport
+                };
+                let renderTask = page.render(renderContext);
+
+                renderTask.promise.then(function () {
+                    pageRendering = false;
+                    if (pageNumPending !== null) {
+                        renderPage(pageNumPending);
+                        pageNumPending = null;
+                    }
+                });
+            });
+
+            const pageNumElement = document.getElementById('page_num');
+            if (pageNumElement) {
+                pageNumElement.textContent = num;
+            }
+        }
+
+        function queueRenderPage(num) {
+            if (pageRendering) {
+                pageNumPending = num;
+            } else {
+                renderPage(num);
+            }
+        }
+
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        const zoomInButton = document.getElementById('zoom_in');
+        const zoomOutButton = document.getElementById('zoom_out');
+
+        if (prevButton) {
+            prevButton.addEventListener('click', function () {
+                if (pageNum <= 1) return;
+                pageNum--;
+                queueRenderPage(pageNum);
+            });
+        }
+
+        if (nextButton) {
+            nextButton.addEventListener('click', function () {
+                if (pageNum >= pdfDoc.numPages) return;
+                pageNum++;
+                queueRenderPage(pageNum);
+            });
+        }
+
+        if (zoomInButton) {
+            zoomInButton.addEventListener('click', function () {
+                scale += 0.2;
+                queueRenderPage(pageNum);
+            });
+        }
+
+        if (zoomOutButton) {
+            zoomOutButton.addEventListener('click', function () {
+                if (scale > 0.4) {
+                    scale -= 0.2;
+                    queueRenderPage(pageNum);
+                }
+            });
+        }
+    }
 }
-});
-}, { threshold: 0.15 });
 
-observer.observe(aboutContent);
+// ===== Parallax Effect for Hero Section =====
+document.addEventListener("DOMContentLoaded", function() {
+    const slideshow = document.getElementById("slideshow");
+    
+    if (slideshow) {
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallax = slideshow.querySelector('.slideshow-inner');
+            if (parallax && scrolled < window.innerHeight) {
+                parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+                parallax.style.opacity = 1 - (scrolled / window.innerHeight);
+            }
+        });
+    }
 });
+
+// ===== Add Loading Animation =====
+window.addEventListener('load', function() {
+    document.body.classList.add('loaded');
+});
+
+// ===== Console Welcome Message =====
+console.log('%c Welcome to Kousik Kumar Dutta\'s Website! ', 
+    'background: linear-gradient(135deg, #0a2a66 0%, #1e5a9a 100%); color: white; padding: 10px 20px; font-size: 16px; font-weight: bold; border-radius: 5px;');
+console.log('%c Interested in the code? Check out the repository! ', 
+    'color: #ff6b35; font-size: 14px; font-weight: bold;');

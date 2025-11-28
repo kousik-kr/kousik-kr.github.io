@@ -15,29 +15,121 @@
             <img src="images/profile.jpg" alt="Profile">
         </div>
         <nav>
-            <a href="index.html" data-page="index.html"><i class="fas fa-home"></i><span>Home</span></a>
-            <a href="publications.html" data-page="publications.html"><i class="fas fa-book"></i><span>Publications</span></a>
-            <a href="research.html" data-page="research.html"><i class="fas fa-flask"></i><span>Research Interests</span></a>
-            <a href="teaching.html" data-page="teaching.html"><i class="fas fa-chalkboard-teacher"></i><span>Teaching</span></a>
-            <a href="personal.html" data-page="personal.html"><i class="fas fa-user"></i><span>Personal Info</span></a>
-            <a href="resume.html" data-page="resume.html"><i class="fas fa-file-alt"></i><span>Resume</span></a>
-            <a href="contact.html" data-page="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
+            <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="publications.html"><i class="fas fa-book"></i><span>Publications</span></a>
+            <a href="research.html" class="active"><i class="fas fa-flask"></i><span>Research Interests</span></a>
+            <a href="teaching.html"><i class="fas fa-chalkboard-teacher"></i><span>Teaching</span></a>
+            <a href="personal.html"><i class="fas fa-user"></i><span>Personal Info</span></a>
+            <a href="resume.html"><i class="fas fa-file-alt"></i><span>Resume</span></a>
+            <a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
         </nav>
     </div>
 
     <!-- Main Content -->
     <div class="main">
         <div class="content">
-            <h1>Research Interests</h1>
-            <ul>
-                <li>Spatio-temporal databases</li>
-                <li>Navigation systems</li>
-                <li>Graph data structures and libraries</li>
-                <li>Parallel and distributed algorithm design</li>
-                <li>Time-dependent road networks</li>
-                <li>Efficient path planning under constraints</li>
-                <li>Integration of cutting-edge technologies in navigation and spatial computing</li>
-            </ul>
+            <h1><i class="fas fa-lightbulb" style="color: var(--accent-color); margin-right: 15px;"></i>Research Interests</h1>
+            
+            <p style="font-size: 1.2em; color: var(--text-dark); margin-bottom: 40px; line-height: 1.8;">
+                My research focuses on developing efficient algorithms and systems for managing and analyzing spatio-temporal data, 
+                with applications in navigation, logistics, and large-scale data processing.
+            </p>
+
+            <div class="research-grid">
+                <div class="research-card">
+                    <i class="fas fa-database icon"></i>
+                    <h3>Spatio-temporal Databases</h3>
+                    <p>
+                        Developing advanced data structures and query optimization techniques for managing time-dependent spatial data. 
+                        Focus on scalable solutions for large-scale systems with dynamic geospatial information.
+                    </p>
+                </div>
+
+                <div class="research-card">
+                    <i class="fas fa-route icon"></i>
+                    <h3>Navigation Systems</h3>
+                    <p>
+                        Designing efficient algorithms for route planning in complex transportation networks. 
+                        Research includes real-time path optimization and handling traffic dynamics in urban environments.
+                    </p>
+                </div>
+
+                <div class="research-card">
+                    <i class="fas fa-project-diagram icon"></i>
+                    <h3>Graph Data Structures</h3>
+                    <p>
+                        Creating scalable graph libraries for fast information retrieval and processing. 
+                        Developing specialized data structures optimized for spatial and temporal queries.
+                    </p>
+                </div>
+
+                <div class="research-card">
+                    <i class="fas fa-code-branch icon"></i>
+                    <h3>Parallel Algorithm Design</h3>
+                    <p>
+                        Implementing multi-threaded and distributed algorithms for computational efficiency. 
+                        Exploring parallelization strategies for graph algorithms and path optimization problems.
+                    </p>
+                </div>
+
+                <div class="research-card">
+                    <i class="fas fa-clock icon"></i>
+                    <h3>Time-Dependent Road Networks</h3>
+                    <p>
+                        Addressing challenges in routing with time-varying edge weights. 
+                        Developing solutions for constrained path problems in dynamic transportation networks.
+                    </p>
+                </div>
+
+                <div class="research-card">
+                    <i class="fas fa-truck icon"></i>
+                    <h3>Vehicle Logistics Optimization</h3>
+                    <p>
+                        Streamlining pickup and delivery operations considering real-world constraints. 
+                        Optimizing loading/unloading costs and route efficiency in logistics systems.
+                    </p>
+                </div>
+
+                <div class="research-card">
+                    <i class="fas fa-map-marked-alt icon"></i>
+                    <h3>Constrained Path Planning</h3>
+                    <p>
+                        Solving path optimization under multiple constraints including time windows, 
+                        capacity limits, and resource availability in complex networks.
+                    </p>
+                </div>
+
+                <div class="research-card">
+                    <i class="fas fa-mountain icon"></i>
+                    <h3>Scenic Route Optimization</h3>
+                    <p>
+                        Developing bidirectional algorithms for finding optimal routes that balance 
+                        travel time with scenic value and user preferences.
+                    </p>
+                </div>
+
+                <div class="research-card">
+                    <i class="fas fa-network-wired icon"></i>
+                    <h3>Integration of Cutting-Edge Technologies</h3>
+                    <p>
+                        Exploring applications of machine learning, cloud computing, and distributed systems 
+                        in spatial data management and navigation.
+                    </p>
+                </div>
+            </div>
+
+            <div style="margin-top: 60px; background: var(--bg-white); padding: 40px; border-radius: 20px; box-shadow: var(--shadow-md);">
+                <h2 style="color: var(--primary-color); margin-bottom: 20px;">
+                    <i class="fas fa-bullseye" style="color: var(--accent-color); margin-right: 10px;"></i>
+                    Research Impact
+                </h2>
+                <p style="font-size: 1.1em; line-height: 1.8; color: var(--text-light);">
+                    My research contributions span multiple domains with publications in prestigious conferences such as 
+                    <strong>ACM SIGSPATIAL</strong>, <strong>WISE</strong>, <strong>DATE</strong>, and <strong>IEEE</strong>. 
+                    The work focuses on practical solutions to real-world problems in navigation, logistics, and data management, 
+                    with applications in smart cities, transportation systems, and location-based services.
+                </p>
+            </div>
         </div>
     </div>
 

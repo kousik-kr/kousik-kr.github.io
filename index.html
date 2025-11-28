@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kousik Kumar Dutta</title>
+    <title>Kousik Kumar Dutta - Ph.D. Scholar | Spatio-temporal Databases & Graph Algorithms</title>
+    <meta name="description" content="Kousik Kumar Dutta - Ph.D. Scholar at IIT Ropar specializing in spatio-temporal databases, navigation systems, graph algorithms, and parallel computing.">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <!-- Sidebar placed as first child for CSS sibling selectors to work -->
+    <!-- Sidebar -->
     <div class="sidebar expanded" id="sidebar">
         <div class="profile" id="sidebarToggle">
-            <img src="images/profile.jpg" alt="Profile Picture">
-            <!-- Optionally add a name, if desired  
-            <div class="name">Kousik Kumar Dutta</div>
-            -->
+            <img src="images/profile.jpg" alt="Kousik Kumar Dutta - Profile Picture">
         </div>
         <nav>
             <a href="index.html" class="active"><i class="fas fa-home"></i> <span>Home</span></a>
@@ -28,9 +26,9 @@
         </nav>
     </div>
     
-    <!-- Main content: must be a sibling of .sidebar for layout to work -->
+    <!-- Main content -->
     <div class="main expanded" id="main">
-        <!-- Slideshow Section -->
+        <!-- Hero Section with Slideshow -->
         <div class="slideshow" id="slideshow">
             <div class="slideshow-inner">
                 <div class="name-banner">
@@ -38,18 +36,73 @@
                     <div id="typing-text"></div>
                 </div>
                 <div class="quote">
-                    “Bad luck is not for those who struggle, but for those who never struggle.”
+                    "Bad luck is not for those who struggle, but for those who never struggle."
                 </div>
             </div>
         </div>
-         <!-- About Section -->
-        </section class="about-section">
+
+        <!-- About Section -->
+        <section class="about-section">
             <div class="about-content"> 
                 <h1>About Me</h1> 
-                <p> I am a Ph.D. scholar at IIT Ropar specializing in <b>spatio-temporal databases, navigation systems, graph library, and parallel algorithm design</b>. Proficient in <b>Java</b> programming, I have successfully developed a scalable graph library enabling fast information retrieval. My research reflects diversity, with publications across multiple domains. I am passionate about integrating other cutting-edge technologies into my domain to contribute to the community. 
-                </p> 
+                <p>
+                    I am a Ph.D. scholar at <strong>IIT Ropar</strong> specializing in <strong>spatio-temporal databases, navigation systems, graph library, and parallel algorithm design</strong>. 
+                    Proficient in <strong>Java</strong> programming, I have successfully developed a scalable graph library enabling fast information retrieval. 
+                    My research reflects diversity, with publications across multiple domains. I am passionate about integrating other cutting-edge technologies 
+                    into my domain to contribute to the community.
+                </p>
+                
+                <h2 style="color: var(--primary-color); margin-top: 40px; margin-bottom: 25px;">
+                    <i class="fas fa-chart-line" style="color: var(--accent-color); margin-right: 10px;"></i>
+                    Research Highlights
+                </h2>
+                <div class="research-grid" style="margin-top: 20px;">
+                    <div class="research-card">
+                        <i class="fas fa-database icon"></i>
+                        <h3>Spatio-temporal Databases</h3>
+                        <p>Advanced techniques for managing and querying time-dependent spatial data in large-scale systems.</p>
+                    </div>
+                    <div class="research-card">
+                        <i class="fas fa-route icon"></i>
+                        <h3>Navigation Systems</h3>
+                        <p>Efficient path planning and constrained route optimization on time-dependent road networks.</p>
+                    </div>
+                    <div class="research-card">
+                        <i class="fas fa-project-diagram icon"></i>
+                        <h3>Graph Algorithms</h3>
+                        <p>Scalable graph libraries and parallel algorithms for fast information retrieval and processing.</p>
+                    </div>
+                </div>
+
+                <h2 style="color: var(--primary-color); margin-top: 50px; margin-bottom: 25px;">
+                    <i class="fas fa-trophy" style="color: var(--accent-color); margin-right: 10px;"></i>
+                    Recent Achievements
+                </h2>
+                <div class="publications-grid">
+                    <div class="publication-card">
+                        <span class="pub-type">CONFERENCE</span>
+                        <div class="pub-title">Interval Based Constrained Path Optimization in Time-Dependent Road Networks</div>
+                        <div class="pub-venue">WISE 2025 (Just Accepted)</div>
+                        <div class="pub-authors"><strong>Dutta, K.K.</strong>, Gunturi, V.M.V.</div>
+                    </div>
+                    <div class="publication-card">
+                        <span class="pub-type">CONFERENCE</span>
+                        <div class="pub-title">Streamlining vehicle logistics: Maximizing pickup and delivery</div>
+                        <div class="pub-venue">ACM SIGSPATIAL 2025</div>
+                        <div class="pub-authors"><strong>Dutta, K.K.</strong>, Gunturi, V.M.V.</div>
+                        <a href="https://doi.org/10.1145/3748636.3763205" target="_blank" class="pub-link">
+                            <i class="fas fa-external-link-alt"></i> View Paper
+                        </a>
+                    </div>
+                    <div class="publication-card">
+                        <span class="pub-type">UNDER REVIEW</span>
+                        <div class="pub-title">BiScenic: A Bidirectional Algorithm for Scenic Route Optimization</div>
+                        <div class="pub-venue">Journal Submission</div>
+                        <div class="pub-authors"><strong>Dutta, K.K.</strong>, Gunturi, V.M.V.</div>
+                    </div>
+                </div>
             </div>
-    </section>
+        </section>
     </div>
    
     <script src="script.js"></script>

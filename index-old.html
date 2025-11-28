@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kousik Kumar Dutta</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar placed as first child for CSS sibling selectors to work -->
+    <div class="sidebar expanded" id="sidebar">
+        <div class="profile" id="sidebarToggle">
+            <img src="images/profile.jpg" alt="Profile Picture">
+            <!-- Optionally add a name, if desired  
+            <div class="name">Kousik Kumar Dutta</div>
+            -->
+        </div>
+        <nav>
+            <a href="index.html" class="active"><i class="fas fa-home"></i> <span>Home</span></a>
+            <a href="publications.html"><i class="fas fa-book"></i> <span>Publications</span></a>
+            <a href="research.html"><i class="fas fa-flask"></i> <span>Research Interests</span></a>
+            <a href="teaching.html"><i class="fas fa-chalkboard-teacher"></i> <span>Teaching</span></a>
+            <a href="personal.html"><i class="fas fa-user"></i> <span>Personal Info</span></a>
+            <a href="resume.html"><i class="fas fa-file"></i> <span>Resume</span></a>
+            <a href="contact.html"><i class="fas fa-envelope"></i> <span>Contact</span></a>
+        </nav>
+    </div>
+    
+    <!-- Main content: must be a sibling of .sidebar for layout to work -->
+    <div class="main expanded" id="main">
+        <!-- Slideshow Section -->
+        <div class="slideshow" id="slideshow">
+            <div class="slideshow-inner">
+                <div class="name-banner">
+                    <h1>Kousik Kumar Dutta</h1>
+                    <div id="typing-text"></div>
+                </div>
+                <div class="quote">
+                    “Bad luck is not for those who struggle, but for those who never struggle.”
+                </div>
+            </div>
+        </div>
+         <!-- About Section -->
+        </section class="about-section">
+            <div class="about-content"> 
+                <h1>About Me</h1> 
+                <p> I am a Ph.D. scholar at IIT Ropar specializing in <b>spatio-temporal databases, navigation systems, graph library, and parallel algorithm design</b>. Proficient in <b>Java</b> programming, I have successfully developed a scalable graph library enabling fast information retrieval. My research reflects diversity, with publications across multiple domains. I am passionate about integrating other cutting-edge technologies into my domain to contribute to the community. 
+                </p> 
+            </div>
+    </section>
+    </div>
+   
+    <script src="script.js"></script>
+</body>
+</html>
