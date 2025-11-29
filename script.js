@@ -356,3 +356,85 @@ console.log('%c Welcome to Kousik Kumar Dutta\'s Website! ',
     'background: linear-gradient(135deg, #0a2a66 0%, #1e5a9a 100%); color: white; padding: 10px 20px; font-size: 16px; font-weight: bold; border-radius: 5px;');
 console.log('%c Interested in the code? Check out the repository! ', 
     'color: #ff6b35; font-size: 14px; font-weight: bold;');
+
+// ===== GitHub Projects Widget =====
+function formatDateShort(iso) {
+    if (!iso) return '';
+    const d = new Date(iso);
+    return d.toLocaleDateString();
+}
+
+async function loadGitHubProjects(username = 'kousik-kr', containerId = 'projects-container') {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    const cacheKey = 'gh_repos_cache_' + username;
+    const cacheTTL = 1000 * 60 * 10; // 10 minutes
+    try {
+        const cached = localStorage.getItem(cacheKey);
+        if (cached) {
+            const parsed = JSON.parse(cached);
+            if (Date.now() - parsed.ts < cacheTTL && parsed.repos) {
+                renderRepos(parsed.repos, container);
+                return;
+            }
+        }
+    } catch (e) {
+        console.warn('GitHub cache parse failed', e);
+    }
+
+    container.innerHTML = '<div class="projects-loading">Loading projects from GitHub...</div>';
+
+    try {
+        const resp = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`);
+        if (resp.status === 403) {
+            container.innerHTML = '<div class="projects-loading">GitHub API rate limit reached. Try again later or authenticate.</div>';
+            return;
+        }
+        if (!resp.ok) {
+            container.innerHTML = '<div class="projects-loading">Unable to fetch projects.</div>';
+            return;
+        }
+        const data = await resp.json();
+        const repos = (Array.isArray(data) ? data : []).filter(r => !r.archived).sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+        try { localStorage.setItem(cacheKey, JSON.stringify({ ts: Date.now(), repos })); } catch (e) {}
+        renderRepos(repos, container);
+    } catch (err) {
+        container.innerHTML = '<div class="projects-loading">Error fetching projects.</div>';
+        console.error('GitHub fetch error', err);
+    }
+}
+
+function renderRepos(repos, container) {
+    if (!repos || repos.length === 0) {
+        container.innerHTML = '<div class="projects-loading">No public repositories found.</div>';
+        return;
+    }
+
+    const html = repos.map(r => {
+        const desc = r.description ? escapeHtml(r.description) : '';
+        const lang = r.language ? `<span class="meta-item"><i class="fas fa-code"></i> ${escapeHtml(r.language)}</span>` : '';
+        const stars = `<span class="meta-item"><i class="fas fa-star"></i> ${r.stargazers_count}</span>`;
+        const forks = `<span class="meta-item"><i class="fas fa-code-branch"></i> ${r.forks_count}</span>`;
+        const updated = `<span class="meta-item"><i class="fas fa-clock"></i> ${formatDateShort(r.updated_at)}</span>`;
+        return `<a class="project-card" href="${r.html_url}" target="_blank" rel="noopener noreferrer">
+            <div class="project-title"><span>${escapeHtml(r.name)}</span></div>
+            <div class="project-desc">${desc}</div>
+            <div class="project-meta">${lang}${stars}${forks}${updated}</div>
+        </a>`;
+    }).join('');
+
+    container.innerHTML = html;
+}
+
+function escapeHtml(s) {
+    if (!s) return '';
+    return s.replace(/[&<>"']/g, function (m) {
+        return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[m];
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Load projects on pages that include the container
+    loadGitHubProjects('kousik-kr');
+});
