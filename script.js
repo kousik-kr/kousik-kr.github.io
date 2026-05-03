@@ -438,3 +438,118 @@ document.addEventListener('DOMContentLoaded', function () {
     // Load projects on pages that include the container
     loadGitHubProjects('kousik-kr');
 });
+
+function openContactModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeContactModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+}
+
+function closeModalFromBackdrop(event, modalId) {
+    if (event.target && event.target.id === modalId) {
+        closeContactModal(modalId);
+    }
+}
+
+async function submitContactPayload(form) {
+    const endpoint = form.dataset.endpoint;
+    const status = form.querySelector('.form-status');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    if (!endpoint) {
+        throw new Error('Missing form endpoint');
+    }
+
+    const payload = Object.fromEntries(new FormData(form).entries());
+
+    if (status) {
+        status.className = 'form-status';
+        status.textContent = 'Sending...';
+    }
+    if (submitButton) {
+        submitButton.disabled = true;
+    }
+
+    try {
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
+
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) {
+            throw new Error(data.message || 'Submission failed');
+        }
+
+        form.reset();
+        if (status) {
+            status.className = 'form-status success';
+            status.textContent = data.message || 'Request received successfully.';
+        }
+
+        setTimeout(() => {
+            const modal = form.closest('.modal-backdrop');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        }, 800);
+    } catch (error) {
+        if (status) {
+            status.className = 'form-status error';
+            status.textContent = error.message || 'Unable to submit the form.';
+        }
+    } finally {
+        if (submitButton) {
+            submitButton.disabled = false;
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const contactForms = document.querySelectorAll('#messageForm, #appointmentForm');
+    contactForms.forEach(form => {
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            submitContactPayload(form);
+        });
+    });
+
+    let scrollTopButton = document.querySelector('.scroll-top-btn');
+    if (!scrollTopButton) {
+        scrollTopButton = document.createElement('button');
+        scrollTopButton.type = 'button';
+        scrollTopButton.className = 'scroll-top-btn';
+        scrollTopButton.setAttribute('aria-label', 'Scroll to top');
+        scrollTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        document.body.appendChild(scrollTopButton);
+    }
+
+    const updateScrollButton = () => {
+        if (window.scrollY > 400) {
+            scrollTopButton.classList.add('visible');
+        } else {
+            scrollTopButton.classList.remove('visible');
+        }
+    };
+
+    scrollTopButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', updateScrollButton, { passive: true });
+    updateScrollButton();
+});
