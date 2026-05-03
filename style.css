@@ -1473,4 +1473,41 @@ body {
     gap: 30px;
     margin-bottom: 30px;
     padding: 20px;
+}
+
+/* Experience Section Styles */
+.experience-section {
+    background: var(--bg-white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 30px;
+    border-left: 5px solid var(--accent-cyan);
+}
+
+.experience-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--bg-light);
+}
+
+.experience-item {
+    background: var(--bg-light);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-cyan);
+    margin-bottom: 15px;
+}
+
+.experience-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.experience-item p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin: 0;
+}
 
