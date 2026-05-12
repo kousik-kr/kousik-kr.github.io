@@ -768,6 +768,20 @@ body {
     font-weight: 600;
 }
 
+.highlight-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    color: var(--accent-blue);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.highlight-link:hover {
+    color: var(--accent-cyan);
+}
+
 /* ===== Timeline (Teaching) ===== */
 .timeline {
     position: relative;
@@ -1308,6 +1322,23 @@ body {
         min-width: 110px;
         font-size: 0.9rem;
     }
+
+    .footer-content {
+        padding: 30px 20px 18px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+
+    .footer .social-links {
+        justify-content: flex-start;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -1350,8 +1381,7 @@ body {
 .footer {
     background: var(--bg-gradient-1);
     color: white;
-    padding: 30px 20px;
-    text-align: center;
+    padding: 0;
     margin-top: 60px;
     border-top: 3px solid var(--accent-cyan);
     box-shadow: 0 -4px 20px rgba(0, 180, 216, 0.2);
@@ -1360,26 +1390,110 @@ body {
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 38px 24px 20px;
 }
 
-.footer p {
-    margin: 8px 0;
-    font-size: 0.95em;
-    opacity: 0.95;
+.footer-grid {
+    display: grid;
+    grid-template-columns: minmax(260px, 1.2fr) repeat(3, minmax(180px, 1fr));
+    gap: 28px;
+    align-items: start;
+}
+
+.footer-block h3 {
+    margin: 0 0 16px;
+    color: var(--accent-sky);
+    font-size: 0.92rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.footer-brand-name {
+    margin: 0 0 10px;
+    color: white;
+    font-size: 1.55rem;
+}
+
+.footer-role,
+.footer-tagline,
+.footer-contact p,
+.footer-bottom {
+    color: rgba(255, 255, 255, 0.84);
+}
+
+.footer-role {
+    margin: 0 0 10px;
+    font-weight: 600;
+}
+
+.footer-tagline {
+    margin: 0 0 18px;
+    line-height: 1.8;
+    max-width: 360px;
+}
+
+.footer-link-list {
+    display: grid;
+    gap: 12px;
+}
+
+.footer-link-list a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.86);
+    text-decoration: none;
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.footer-link-list a:hover {
+    color: white;
+    transform: translateX(4px);
+}
+
+.footer-link-list a[aria-current="page"] {
+    color: white;
+    font-weight: 700;
+}
+
+.footer-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.footer-cta:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.18);
 }
 
 .footer .social-links {
-    margin: 20px 0;
+    margin: 18px 0 0;
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: flex-start;
+    gap: 14px;
 }
 
 .footer .social-links a {
     color: white;
-    font-size: 1.5em;
+    font-size: 1.15rem;
     transition: all 0.3s ease;
     opacity: 0.9;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .footer .social-links a:hover {
@@ -1387,14 +1501,29 @@ body {
     transform: translateY(-3px);
     color: var(--accent-sky);
     filter: drop-shadow(0 4px 8px rgba(72, 202, 228, 0.6));
+    background: rgba(255, 255, 255, 0.16);
 }
 
-.footer .copyright {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 0.9em;
-    opacity: 0.8;
+.footer-contact p {
+    margin: 0 0 12px;
+    line-height: 1.7;
+}
+
+.footer-contact p i {
+    width: 18px;
+    margin-right: 10px;
+    color: var(--accent-sky);
+}
+
+.footer-bottom {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-size: 0.92rem;
 }
 
 /* ===== Projects Section ===== */
@@ -1785,4 +1914,3 @@ body {
 .featured-album .album-info h3 {
     color: var(--primary-blue);
 }
-

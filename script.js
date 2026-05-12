@@ -439,93 +439,71 @@ document.addEventListener('DOMContentLoaded', function () {
     loadGitHubProjects('kousik-kr');
 });
 
-function openContactModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-function closeContactModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-    }
-}
-
-function closeModalFromBackdrop(event, modalId) {
-    if (event.target && event.target.id === modalId) {
-        closeContactModal(modalId);
-    }
-}
-
-async function submitContactPayload(form) {
-    const endpoint = form.dataset.endpoint;
-    const status = form.querySelector('.form-status');
-    const submitButton = form.querySelector('button[type="submit"]');
-
-    if (!endpoint) {
-        throw new Error('Missing form endpoint');
-    }
-
-    const payload = Object.fromEntries(new FormData(form).entries());
-
-    if (status) {
-        status.className = 'form-status';
-        status.textContent = 'Sending...';
-    }
-    if (submitButton) {
-        submitButton.disabled = true;
-    }
-
-    try {
-        const response = await fetch(endpoint, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        });
-
-        const data = await response.json().catch(() => ({}));
-        if (!response.ok) {
-            throw new Error(data.message || 'Submission failed');
-        }
-
-        form.reset();
-        if (status) {
-            status.className = 'form-status success';
-            status.textContent = data.message || 'Request received successfully.';
-        }
-
-        setTimeout(() => {
-            const modal = form.closest('.modal-backdrop');
-            if (modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = '';
-            }
-        }, 800);
-    } catch (error) {
-        if (status) {
-            status.className = 'form-status error';
-            status.textContent = error.message || 'Unable to submit the form.';
-        }
-    } finally {
-        if (submitButton) {
-            submitButton.disabled = false;
-        }
-    }
-}
-
 document.addEventListener('DOMContentLoaded', function () {
-    const contactForms = document.querySelectorAll('#messageForm, #appointmentForm');
-    contactForms.forEach(form => {
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-            submitContactPayload(form);
-        });
+    const footerContainers = document.querySelectorAll('.footer-content');
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const footerNav = [
+        ['index.html', 'Home', 'fa-house'],
+        ['research.html', 'Research', 'fa-flask'],
+        ['publications.html', 'Publications', 'fa-book-open'],
+        ['experience.html', 'Experience', 'fa-briefcase'],
+        ['contact.html', 'Contact', 'fa-envelope']
+    ];
+    const footerProfiles = [
+        ['https://scholar.google.com/citations?user=KR_KousikDutta', 'Google Scholar', 'fa-graduation-cap'],
+        ['https://dblp.org/pid/297/4783.html', 'DBLP', 'fa-book'],
+        ['https://github.com/kousik-kr', 'GitHub', 'fa-github'],
+        ['https://www.linkedin.com/in/kousik-kumar-dutta-91595b187/', 'LinkedIn', 'fa-linkedin']
+    ];
+
+    const buildLinkList = (links, isExternal = false) => links.map(([href, label, icon]) => {
+        const active = !isExternal && href === currentPage ? ' aria-current="page"' : '';
+        const target = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+        const iconFamily = icon === 'fa-github' || icon === 'fa-linkedin' ? 'fab' : 'fas';
+        return `<a href="${href}"${active}${target}><i class="${iconFamily} ${icon}"></i><span>${label}</span></a>`;
+    }).join('');
+
+    footerContainers.forEach(container => {
+        container.innerHTML = `
+            <div class="footer-grid">
+                <div class="footer-block">
+                    <h2 class="footer-brand-name">Kousik Kumar Dutta</h2>
+                    <p class="footer-role">Ph.D. Scholar, Computer Science and Engineering, IIT Ropar</p>
+                    <p class="footer-tagline">Research in spatio-temporal databases, navigation systems, routing algorithms, and scalable graph processing.</p>
+                    <a class="footer-cta" href="docs/My_CV.pdf" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-file-arrow-down"></i>
+                        <span>Download CV</span>
+                    </a>
+                </div>
+                <div class="footer-block">
+                    <h3>Navigation</h3>
+                    <div class="footer-link-list">
+                        ${buildLinkList(footerNav)}
+                    </div>
+                </div>
+                <div class="footer-block">
+                    <h3>Academic Profiles</h3>
+                    <div class="footer-link-list">
+                        ${buildLinkList(footerProfiles, true)}
+                    </div>
+                </div>
+                <div class="footer-block footer-contact">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i><span>kousik.21csz0004@iitrpr.ac.in</span></p>
+                    <p><i class="fas fa-location-dot"></i><span>Indian Institute of Technology Ropar, Punjab, India</span></p>
+                    <div class="social-links">
+                        <a href="https://github.com/kousik-kr" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/kousik-kumar-dutta-91595b187/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://scholar.google.com/citations?user=KR_KousikDutta" target="_blank" rel="noopener noreferrer" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="https://dblp.org/pid/297/4783.html" target="_blank" rel="noopener noreferrer" title="DBLP"><i class="fas fa-book"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Kousik Kumar Dutta. All rights reserved.</span>
+                <span>Last updated: May 2026</span>
+            </div>
+        `;
     });
 
     let scrollTopButton = document.querySelector('.scroll-top-btn');

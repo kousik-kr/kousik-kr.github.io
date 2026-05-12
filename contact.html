@@ -33,101 +33,17 @@
             <h1><i class="fas fa-paper-plane" style="color: var(--accent-color); margin-right: 15px;"></i>Get In Touch</h1>
             
             <p style="font-size: 1.2em; color: var(--text-dark); margin-bottom: 40px; line-height: 1.8; text-align: center;">
-                Feel free to reach out for research collaborations, academic discussions, or any inquiries. 
-                I'm always excited to connect with fellow researchers and professionals.
+                Feel free to reach out for research collaborations, academic discussions, student mentoring, or professional inquiries.
             </p>
 
-            <!-- Quick Action Buttons -->
-            <div class="contact-actions">
-                <button type="button" class="action-button primary" onclick="openContactModal('messageModal')">
-                    <i class="fas fa-envelope-open"></i>Send Message
-                </button>
-                <button type="button" class="action-button secondary" onclick="openContactModal('appointmentModal')">
-                    <i class="fas fa-calendar-check"></i>Schedule Appointment
-                </button>
-            </div>
-
-            <!-- Message Modal -->
-            <div id="messageModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="messageModalTitle" onclick="closeModalFromBackdrop(event, 'messageModal')">
-                <div class="modal-panel">
-                    <div class="modal-header">
-                        <h2 id="messageModalTitle">Send Me a Message</h2>
-                        <button type="button" class="modal-close" aria-label="Close message form" onclick="closeContactModal('messageModal')">×</button>
-                    </div>
-                    <form id="messageForm" class="modal-form" data-endpoint="/api/messages">
-                        <div class="form-row">
-                            <div class="field-group">
-                                <label for="messageName">Name</label>
-                                <input id="messageName" type="text" name="name" required>
-                            </div>
-                            <div class="field-group">
-                                <label for="messageEmail">Email</label>
-                                <input id="messageEmail" type="email" name="email" required>
-                            </div>
-                        </div>
-                        <div class="field-group">
-                            <label for="messageSubject">Subject</label>
-                            <input id="messageSubject" type="text" name="subject" required>
-                        </div>
-                        <div class="field-group">
-                            <label for="messageBody">Message</label>
-                            <textarea id="messageBody" name="message" rows="6" required></textarea>
-                        </div>
-                        <div class="form-status" aria-live="polite"></div>
-                        <button type="submit" class="modal-submit">Send Message</button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Appointment Modal -->
-            <div id="appointmentModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="appointmentModalTitle" onclick="closeModalFromBackdrop(event, 'appointmentModal')">
-                <div class="modal-panel">
-                    <div class="modal-header">
-                        <h2 id="appointmentModalTitle">Schedule an Appointment</h2>
-                        <button type="button" class="modal-close" aria-label="Close appointment form" onclick="closeContactModal('appointmentModal')">×</button>
-                    </div>
-                    <form id="appointmentForm" class="modal-form" data-endpoint="/api/appointments">
-                        <div class="form-row">
-                            <div class="field-group">
-                                <label for="appointmentName">Name</label>
-                                <input id="appointmentName" type="text" name="name" required>
-                            </div>
-                            <div class="field-group">
-                                <label for="appointmentEmail">Email</label>
-                                <input id="appointmentEmail" type="email" name="email" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="field-group">
-                                <label for="appointmentDate">Preferred Date</label>
-                                <input id="appointmentDate" type="date" name="date" required>
-                            </div>
-                            <div class="field-group">
-                                <label for="appointmentTime">Preferred Time</label>
-                                <input id="appointmentTime" type="time" name="time" required>
-                            </div>
-                        </div>
-                        <div class="field-group">
-                            <label for="appointmentMode">Meeting Mode</label>
-                            <select id="appointmentMode" name="mode" required>
-                                <option value="">Select a mode</option>
-                                <option value="Online">Online</option>
-                                <option value="Phone">Phone</option>
-                                <option value="In person">In person</option>
-                            </select>
-                        </div>
-                        <div class="field-group">
-                            <label for="appointmentTopic">Purpose</label>
-                            <input id="appointmentTopic" type="text" name="subject" placeholder="Research discussion, collaboration, visit, etc." required>
-                        </div>
-                        <div class="field-group">
-                            <label for="appointmentNotes">Additional Notes</label>
-                            <textarea id="appointmentNotes" name="notes" rows="5" placeholder="Optional details that help me prepare for the meeting."></textarea>
-                        </div>
-                        <div class="form-status" aria-live="polite"></div>
-                        <button type="submit" class="modal-submit">Request Appointment</button>
-                    </form>
-                </div>
+            <div style="max-width: 860px; margin: 0 auto 40px; background: var(--bg-white); padding: 28px 30px; border-radius: 20px; box-shadow: var(--shadow-md); text-align: center;">
+                <h2 style="color: var(--primary-color); margin-bottom: 12px;">
+                    <i class="fas fa-envelope-open-text" style="color: var(--accent-color); margin-right: 10px;"></i>
+                    Preferred Contact
+                </h2>
+                <p style="color: var(--text-light); line-height: 1.8; margin: 0;">
+                    Email is the fastest way to reach me for research discussions, collaboration opportunities, paper-related queries, and academic communication.
+                </p>
             </div>
 
             <div class="contact-grid">
