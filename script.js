@@ -446,8 +446,8 @@ document.addEventListener('DOMContentLoaded', function () {
         ['index.html', 'Home', 'fa-house'],
         ['research.html', 'Research', 'fa-flask'],
         ['publications.html', 'Publications', 'fa-book-open'],
-        ['teaching.html', 'Teaching', 'fa-chalkboard-teacher'],
-        ['experience.html', 'Service', 'fa-briefcase'],
+        ['experience.html', 'Academic Service', 'fa-briefcase'],
+        ['education.html', 'Education', 'fa-graduation-cap'],
         ['contact.html', 'Contact', 'fa-envelope']
     ];
     const footerProfiles = [
@@ -469,8 +469,8 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="footer-grid">
                 <div class="footer-block">
                     <h2 class="footer-brand-name">Kousik Kumar Dutta</h2>
-                    <p class="footer-role">Faculty Candidate, Computer Science and Engineering</p>
-                    <p class="footer-tagline">Ph.D. researcher at IIT Ropar working on spatial data management, route planning, and scalable graph algorithms.</p>
+                    <p class="footer-role">Ph.D. Candidate, Computer Science and Engineering, IIT Ropar</p>
+                    <p class="footer-tagline">Research in spatial data management, route planning, and scalable graph algorithms for time-dependent networks.</p>
                     <a class="footer-cta" href="docs/CV.pdf" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-file-arrow-down"></i>
                         <span>Download CV</span>
