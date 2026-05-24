@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // ===== Typing Effect =====
 document.addEventListener("DOMContentLoaded", function () {
-    const text = "Faculty Candidate | Spatial Data Management | Route Planning | Scalable Graph Algorithms";
+    const text = "Ph.D. CSE | Spatial Data Management | Route Planning | Scalable Graph Algorithms";
     const typingElement = document.getElementById("typing-text");
     
     if (!typingElement) return;
@@ -469,7 +469,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="footer-grid">
                 <div class="footer-block">
                     <h2 class="footer-brand-name">Kousik Kumar Dutta</h2>
-                    <p class="footer-role">Ph.D. Candidate, Computer Science and Engineering, IIT Ropar</p>
+                    <p class="footer-role">Ph.D., Computer Science and Engineering, IIT Ropar</p>
                     <p class="footer-tagline">Research in spatial data management, route planning, and scalable graph algorithms for time-dependent networks.</p>
                     <a class="footer-cta" href="docs/CV.pdf" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-file-arrow-down"></i>
