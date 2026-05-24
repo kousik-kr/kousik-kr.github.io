@@ -2,12 +2,12 @@
     --sidebar-expanded: 260px;
     --sidebar-collapsed: 80px;
     
-    /* Enhanced Blue Color Palette */
-    --primary-dark: #0d1b2a;
-    --primary-navy: #1b263b;
-    --primary-blue: #415a77;
-    --accent-blue: #778da9;
-    --accent-light: #e0e1dd;
+    /* Academic Color Palette */
+    --primary-dark: #14213d;
+    --primary-navy: #1f2a44;
+    --primary-blue: #2f5d62;
+    --accent-blue: #5e7c85;
+    --accent-light: #e7edf0;
     
     /* Vibrant Accent Colors */
     --accent-cyan: #00b4d8;
@@ -19,6 +19,8 @@
     --highlight-orange: #ff8500;
     --highlight-amber: #ffb703;
     --highlight-gold: #ffd60a;
+    --accent-green: #2f855a;
+    --accent-rust: #b45309;
     
     /* Text Colors */
     --text-dark: #1b263b;
@@ -35,6 +37,9 @@
     --bg-gradient-3: linear-gradient(135deg, #00b4d8 0%, #0096c7 100%);
     --bg-gradient-accent: linear-gradient(135deg, #ff8500 0%, #ffb703 100%);
     --bg-gradient-hero: linear-gradient(180deg, rgba(13, 27, 42, 0.65) 0%, rgba(65, 90, 119, 0.55) 100%);
+    --primary-color: var(--primary-blue);
+    --secondary-color: var(--accent-teal);
+    --accent-color: var(--accent-cyan);
     
     /* Shadows with Blue Tints */
     --shadow-sm: 0 2px 4px rgba(13, 27, 42, 0.08);
@@ -1913,4 +1918,537 @@ body {
 
 .featured-album .album-info h3 {
     color: var(--primary-blue);
+}
+
+/* ===== Faculty Application Upgrade ===== */
+.content h1 i,
+.contact-container h1 i,
+.personal-info-container h1 i {
+    -webkit-text-fill-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+    margin-right: 14px;
+}
+
+.lead-text {
+    font-size: 1.18em;
+    color: var(--text-dark);
+    margin-bottom: 34px;
+    line-height: 1.8;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.faculty-hero {
+    height: auto;
+    min-height: 84vh;
+    justify-content: center;
+    padding-top: 64px;
+    padding-bottom: 80px;
+}
+
+.faculty-hero .name-banner {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    color: #fff;
+    margin-bottom: 18px;
+    padding: 28px 20px;
+}
+
+.faculty-hero .name-banner h1 {
+    color: #fff;
+    -webkit-text-fill-color: #fff;
+    background: none;
+    letter-spacing: 0;
+    font-size: clamp(2.4rem, 5vw, 4.8rem);
+    text-shadow: 0 4px 22px rgba(0, 0, 0, 0.32);
+}
+
+.faculty-hero #typing-text {
+    color: rgba(255, 255, 255, 0.92);
+    border-right-color: var(--highlight-amber);
+    white-space: normal;
+    max-width: 920px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
+
+.hero-badges,
+.hero-actions,
+.resume-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.hero-badges {
+    margin-top: 24px;
+}
+
+.hero-badges span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    background: rgba(20, 33, 61, 0.52);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    padding: 9px 14px;
+    font-size: 0.95rem;
+    backdrop-filter: blur(4px);
+}
+
+.hero-actions,
+.resume-actions {
+    margin-top: 24px;
+}
+
+.button-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 44px;
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(47, 93, 98, 0.2);
+    background: #fff;
+    color: var(--primary-navy);
+    text-decoration: none;
+    font-weight: 750;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.button-link.primary {
+    background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-green) 100%);
+    color: #fff;
+    border-color: transparent;
+}
+
+.button-link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-bottom-color: transparent !important;
+    color: var(--primary-navy);
+}
+
+.button-link.primary:hover {
+    color: #fff;
+}
+
+.faculty-hero .button-link {
+    background: rgba(255, 255, 255, 0.94);
+}
+
+.faculty-hero .button-link.primary {
+    background: linear-gradient(135deg, var(--highlight-amber) 0%, var(--highlight-orange) 100%);
+    color: var(--primary-dark);
+}
+
+.faculty-hero .button-link.primary:hover {
+    color: var(--primary-dark);
+}
+
+.quote.hero-statement {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    color: rgba(255, 255, 255, 0.95);
+    font-style: normal;
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    max-width: 900px;
+    padding: 8px 18px;
+    margin-bottom: 0;
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.35);
+}
+
+.about-section.faculty-home {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 64px 30px 30px;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.section-heading i {
+    color: var(--accent-cyan);
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 18px;
+    margin: 34px 0 42px;
+}
+
+.metric-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: var(--shadow-md);
+    border-top: 4px solid var(--accent-cyan);
+}
+
+.metric-value {
+    display: block;
+    color: var(--primary-navy);
+    font-size: 2.25rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.metric-label {
+    display: block;
+    margin-top: 10px;
+    color: var(--text-medium);
+    line-height: 1.5;
+}
+
+.profile-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+    margin: 28px 0 44px;
+}
+
+.profile-summary > div,
+.skill-block,
+.reference-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(47, 93, 98, 0.1);
+}
+
+.profile-summary strong,
+.profile-summary span {
+    display: block;
+}
+
+.profile-summary strong {
+    color: var(--primary-navy);
+    margin-bottom: 8px;
+}
+
+.profile-summary span {
+    color: var(--text-medium);
+}
+
+.profile-summary a {
+    margin-right: 14px;
+}
+
+.featured-publication {
+    border-left-color: var(--highlight-orange);
+}
+
+.under-review {
+    border-left-color: var(--accent-rust);
+}
+
+.vision-panel,
+.impact-panel {
+    background: #fff;
+    border-radius: 12px;
+    padding: 34px;
+    box-shadow: var(--shadow-md);
+    border-left: 5px solid var(--accent-cyan);
+    margin: 22px 0 42px;
+}
+
+.vision-panel h2,
+.impact-panel h2 {
+    margin-top: 0;
+    color: var(--primary-navy);
+}
+
+.panel-kicker {
+    display: inline-flex;
+    margin-bottom: 10px;
+    color: var(--accent-rust);
+    font-size: 0.86rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.project-agenda {
+    display: grid;
+    gap: 18px;
+    margin: 22px 0 42px;
+}
+
+.agenda-card {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 18px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(47, 93, 98, 0.1);
+}
+
+.agenda-card h3 {
+    margin-top: 0;
+    color: var(--primary-navy);
+}
+
+.agenda-icon {
+    width: 56px;
+    height: 56px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    color: #fff;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+    box-shadow: var(--shadow-sm);
+}
+
+.agenda-icon i {
+    font-size: 1.35rem;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.tag-list span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(0, 150, 199, 0.09);
+    color: var(--primary-blue);
+    font-weight: 700;
+}
+
+.teaching-tags {
+    margin-bottom: 42px;
+}
+
+.course-grid,
+.skills-grid,
+.reference-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+    margin: 24px 0 44px;
+}
+
+.course-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 26px;
+    box-shadow: var(--shadow-md);
+    border-top: 4px solid var(--accent-cyan);
+}
+
+.course-card > i {
+    color: var(--accent-cyan);
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.course-card h3,
+.skill-block h3,
+.reference-card h3 {
+    margin-top: 0;
+    color: var(--primary-navy);
+}
+
+.course-meta {
+    color: var(--accent-rust);
+    font-weight: 700;
+    margin-bottom: 12px !important;
+}
+
+.award-card {
+    border-top-color: var(--highlight-orange);
+}
+
+.degree-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: var(--shadow-md);
+}
+
+.degree-details {
+    background: var(--bg-light);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 16px 0;
+}
+
+.degree-details p {
+    margin: 6px 0;
+    color: var(--text-dark);
+}
+
+.compact-timeline .timeline-item h2,
+.education-timeline .timeline-item h2 {
+    font-size: 1.55em;
+}
+
+.activities-timeline {
+    max-width: 980px;
+}
+
+.timeline-entry {
+    align-items: flex-start;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--accent-cyan);
+}
+
+.timeline-date {
+    flex: 0 0 120px;
+    color: var(--accent-rust);
+    font-weight: 800;
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    color: var(--primary-navy);
+}
+
+.timeline-content p {
+    margin-bottom: 10px;
+}
+
+.skill-block {
+    border-top: 4px solid var(--accent-green);
+}
+
+.contact-container h1 {
+    font-size: 2.5em;
+    background: var(--bg-gradient-2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    margin-bottom: 26px;
+}
+
+.contact-card p {
+    color: var(--text-light);
+    margin: 10px 0 0;
+    line-height: 1.6;
+}
+
+.reference-section {
+    margin-top: 60px;
+}
+
+.reference-section h2 {
+    color: var(--primary-blue);
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.reference-section h2 i {
+    color: var(--accent-cyan);
+    margin-right: 10px;
+}
+
+.reference-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.reference-card p {
+    color: var(--text-light);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.reference-card a {
+    color: var(--accent-blue);
+    font-weight: 700;
+    word-break: break-word;
+}
+
+.profile-content {
+    width: 100%;
+    padding-top: 0;
+}
+
+.resume-frame {
+    margin-top: 28px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: var(--shadow-lg);
+}
+
+.resume-frame iframe {
+    width: 100%;
+    height: min(82vh, 980px);
+    min-height: 680px;
+    border: 0;
+    border-radius: 8px;
+    background: #fff;
+}
+
+@media (max-width: 768px) {
+    .faculty-hero {
+        min-height: 86vh;
+        padding-top: 36px;
+        padding-bottom: 56px;
+    }
+
+    .hero-badges span,
+    .button-link {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .agenda-card {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-entry {
+        display: block;
+    }
+
+    .timeline-date {
+        margin-bottom: 10px;
+    }
+
+    .vision-panel,
+    .impact-panel,
+    .degree-card,
+    .course-card,
+    .metric-card,
+    .profile-summary > div,
+    .skill-block,
+    .reference-card {
+        padding: 20px;
+    }
+
+    .resume-frame iframe {
+        min-height: 520px;
+    }
 }

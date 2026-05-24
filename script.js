@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // ===== Typing Effect =====
 document.addEventListener("DOMContentLoaded", function () {
-    const text = "Ph.D. Scholar | Spatio-temporal Databases | Navigation Systems | Graph Algorithms";
+    const text = "Faculty Candidate | Spatial Data Management | Route Planning | Scalable Graph Algorithms";
     const typingElement = document.getElementById("typing-text");
     
     if (!typingElement) return;
@@ -234,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // ===== PDF Resume Viewer (if needed) =====
 if (typeof pdfjsLib !== 'undefined') {
-    const url = 'docs/My_CV.pdf';
+    const url = 'docs/CV.pdf';
     let pdfDoc = null,
         pageNum = 1,
         pageRendering = false,
@@ -446,14 +446,15 @@ document.addEventListener('DOMContentLoaded', function () {
         ['index.html', 'Home', 'fa-house'],
         ['research.html', 'Research', 'fa-flask'],
         ['publications.html', 'Publications', 'fa-book-open'],
-        ['experience.html', 'Experience', 'fa-briefcase'],
+        ['teaching.html', 'Teaching', 'fa-chalkboard-teacher'],
+        ['experience.html', 'Service', 'fa-briefcase'],
         ['contact.html', 'Contact', 'fa-envelope']
     ];
     const footerProfiles = [
-        ['https://scholar.google.com/citations?user=KR_KousikDutta', 'Google Scholar', 'fa-graduation-cap'],
+        ['https://scholar.google.com/citations?hl=en&user=cVei1KAAAAAJ', 'Google Scholar', 'fa-graduation-cap'],
         ['https://dblp.org/pid/297/4783.html', 'DBLP', 'fa-book'],
         ['https://github.com/kousik-kr', 'GitHub', 'fa-github'],
-        ['https://www.linkedin.com/in/kousik-kumar-dutta-91595b187/', 'LinkedIn', 'fa-linkedin']
+        ['https://www.linkedin.com/in/kousik-kumar-dutta-8577952b2/', 'LinkedIn', 'fa-linkedin']
     ];
 
     const buildLinkList = (links, isExternal = false) => links.map(([href, label, icon]) => {
@@ -468,9 +469,9 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="footer-grid">
                 <div class="footer-block">
                     <h2 class="footer-brand-name">Kousik Kumar Dutta</h2>
-                    <p class="footer-role">Ph.D. Scholar, Computer Science and Engineering, IIT Ropar</p>
-                    <p class="footer-tagline">Research in spatio-temporal databases, navigation systems, routing algorithms, and scalable graph processing.</p>
-                    <a class="footer-cta" href="docs/My_CV.pdf" target="_blank" rel="noopener noreferrer">
+                    <p class="footer-role">Faculty Candidate, Computer Science and Engineering</p>
+                    <p class="footer-tagline">Ph.D. researcher at IIT Ropar working on spatial data management, route planning, and scalable graph algorithms.</p>
+                    <a class="footer-cta" href="docs/CV.pdf" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-file-arrow-down"></i>
                         <span>Download CV</span>
                     </a>
@@ -493,8 +494,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     <p><i class="fas fa-location-dot"></i><span>Indian Institute of Technology Ropar, Punjab, India</span></p>
                     <div class="social-links">
                         <a href="https://github.com/kousik-kr" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/kousik-kumar-dutta-91595b187/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://scholar.google.com/citations?user=KR_KousikDutta" target="_blank" rel="noopener noreferrer" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="https://www.linkedin.com/in/kousik-kumar-dutta-8577952b2/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://scholar.google.com/citations?hl=en&user=cVei1KAAAAAJ" target="_blank" rel="noopener noreferrer" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
                         <a href="https://dblp.org/pid/297/4783.html" target="_blank" rel="noopener noreferrer" title="DBLP"><i class="fas fa-book"></i></a>
                     </div>
                 </div>

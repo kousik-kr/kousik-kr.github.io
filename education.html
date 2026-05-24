@@ -4,300 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education - Kousik Kumar Dutta</title>
+    <meta name="description" content="Education of Kousik Kumar Dutta: Ph.D., M.Tech., and B.Tech. in Computer Science and Engineering.">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <!-- Sidebar -->
     <div class="sidebar expanded" id="sidebar">
         <div class="profile" id="sidebarToggle">
-            <img src="images/profile.jpg" alt="Profile">
+            <img src="images/profile.jpg" alt="Kousik Kumar Dutta - Profile Picture">
         </div>
         <nav>
-            <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
-            <a href="publications.html"><i class="fas fa-book"></i><span>Publications</span></a>
-            <a href="research.html"><i class="fas fa-flask"></i><span>Research Interests</span></a>
-            <a href="education.html" class="active"><i class="fas fa-graduation-cap"></i><span>Education</span></a>
-            <a href="experience.html"><i class="fas fa-briefcase"></i><span>Experience</span></a>
-            <a href="activities.html"><i class="fas fa-calendar-alt"></i><span>Activities</span></a>
-            <a href="personal.html"><i class="fas fa-user"></i><span>Personal Info</span></a>
-            <a href="resume.html"><i class="fas fa-file-alt"></i><span>Resume</span></a>
-            <a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
+            <a href="index.html" data-tooltip="Home"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="publications.html" data-tooltip="Publications"><i class="fas fa-book"></i><span>Publications</span></a>
+            <a href="research.html" data-tooltip="Research"><i class="fas fa-flask"></i><span>Research</span></a>
+            <a href="teaching.html" data-tooltip="Teaching"><i class="fas fa-chalkboard-teacher"></i><span>Teaching</span></a>
+            <a href="education.html" class="active" data-tooltip="Education"><i class="fas fa-graduation-cap"></i><span>Education</span></a>
+            <a href="experience.html" data-tooltip="Academic Service"><i class="fas fa-briefcase"></i><span>Service</span></a>
+            <a href="activities.html" data-tooltip="News"><i class="fas fa-calendar-alt"></i><span>News</span></a>
+            <a href="personal.html" data-tooltip="Profile"><i class="fas fa-user"></i><span>Profile</span></a>
+            <a href="resume.html" data-tooltip="CV"><i class="fas fa-file-alt"></i><span>CV</span></a>
+            <a href="contact.html" data-tooltip="Contact"><i class="fas fa-envelope"></i><span>Contact</span></a>
         </nav>
     </div>
 
-    <!-- Main Content -->
     <div class="main">
         <div class="content">
-            <h1><i class="fas fa-university" style="color: var(--accent-color); margin-right: 15px;"></i>Education</h1>
-            
-            <p style="font-size: 1.2em; color: var(--text-dark); margin-bottom: 40px; line-height: 1.8;">
-                My academic journey reflects a strong foundation in computer science with specialized focus on 
-                advanced topics in databases, algorithms, and systems.
+            <h1><i class="fas fa-university"></i> Education</h1>
+            <p class="lead-text">
+                My academic training has been consistently rooted in Computer Science and Engineering, with doctoral and master's work focused on graph algorithms, constrained path optimization, and spatial data systems.
             </p>
 
-            <div class="timeline">
-                <!-- Ph.D. -->
-                <div class="timeline-item">
-                    <div style="background: var(--bg-white); padding: 30px; border-radius: 15px; box-shadow: var(--shadow-md);">
-                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                            <i class="fas fa-graduation-cap" style="font-size: 3em; color: var(--accent-color);"></i>
-                            <div>
-                                <h2 style="margin: 0; color: var(--primary-color);">Doctor of Philosophy (Ph.D.)</h2>
-                                <h3 style="margin: 5px 0; color: var(--secondary-color);">Computer Science and Engineering</h3>
-                            </div>
-                        </div>
-                        
-                        <div style="margin-bottom: 15px;">
-                            <p style="font-size: 1.1em; margin: 5px 0;">
-                                <i class="fas fa-building" style="color: var(--accent-color); margin-right: 10px;"></i>
-                                <strong>Indian Institute of Technology Ropar</strong>
-                            </p>
-                            <p style="font-size: 1em; color: var(--text-light); margin: 5px 0 5px 35px;">
-                                <i class="fas fa-calendar-alt" style="margin-right: 8px;"></i>
-                                2021 - Present (Expected: 2026)
-                            </p>
-                            <p style="font-size: 1em; color: var(--text-light); margin: 5px 0 5px 35px;">
-                                <i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>
-                                Rupnagar, Punjab, India
-                            </p>
-                        </div>
-
-                        <div style="background: var(--bg-light); padding: 20px; border-radius: 10px; margin-top: 20px;">
-                            <h4 style="color: var(--primary-color); margin-bottom: 15px;">
-                                <i class="fas fa-search" style="color: var(--accent-color); margin-right: 8px;"></i>
-                                Research Focus
-                            </h4>
-                            <p style="line-height: 1.8; color: var(--text-dark);">
-                                Spatio-temporal databases, Navigation systems, Graph algorithms, and Parallel computing. 
-                                Developing efficient algorithms for time-dependent constrained path optimization on road networks.
-                            </p>
-                        </div>
-
-                        <div style="margin-top: 20px;">
-                            <h4 style="color: var(--primary-color); margin-bottom: 15px;">
-                                <i class="fas fa-award" style="color: var(--accent-color); margin-right: 8px;"></i>
-                                Achievements & Activities
-                            </h4>
-                            <ul style="list-style: none; padding: 0;">
-                                <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
-                                    <i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 10px;"></i>
-                                    Published 7+ papers in top-tier conferences (ACM SIGSPATIAL, WISE, DATE, IEEE)
-                                </li>
-                                <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
-                                    <i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 10px;"></i>
-                                    Primary TA for Database Management Systems (4+ years)
-                                </li>
-                                <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
-                                    <i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 10px;"></i>
-                                    Developed scalable graph library for efficient spatial queries
-                                </li>
-                                <li style="padding: 10px 0;">
-                                    <i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 10px;"></i>
-                                    Active member of research groups and academic committees
-                                </li>
-                            </ul>
-                        </div>
+            <div class="timeline education-timeline">
+                <div class="timeline-item degree-card">
+                    <h2>Ph.D. in Computer Science and Engineering</h2>
+                    <h3>Indian Institute of Technology Ropar, Punjab, India | 2021-2026</h3>
+                    <div class="degree-details">
+                        <p><strong>Dissertation:</strong> Constrained Maximization of Preferences on Time-Dependent Road Networks</p>
+                        <p><strong>Advisor(s):</strong> Dr. Venkata M. V. Gunturi and Dr. T. V. Kalyan</p>
+                        <p><strong>CGPA:</strong> 7.92/10.00</p>
                     </div>
+                    <ul>
+                        <li>Developed algorithms and systems for constrained optimization in large time-dependent road networks.</li>
+                        <li>Published work in Geoinformatica, MDM, WISE, and WISE PhD Symposium venues.</li>
+                        <li>Held institute fellowship throughout doctoral studies.</li>
+                    </ul>
                 </div>
 
-                <!-- M.Tech -->
-                <div class="timeline-item">
-                    <div style="background: var(--bg-white); padding: 30px; border-radius: 15px; box-shadow: var(--shadow-md);">
-                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                            <i class="fas fa-user-graduate" style="font-size: 3em; color: var(--accent-color);"></i>
-                            <div>
-                                <h2 style="margin: 0; color: var(--primary-color);">Master of Technology (M.Tech)</h2>
-                                <h3 style="margin: 5px 0; color: var(--secondary-color);">Computer Science and Engineering</h3>
-                            </div>
-                        </div>
-                        
-                        <div style="margin-bottom: 15px;">
-                            <p style="font-size: 1.1em; margin: 5px 0;">
-                                <i class="fas fa-building" style="color: var(--accent-color); margin-right: 10px;"></i>
-                                <strong>Indian Institute of Technology Ropar</strong>
-                            </p>
-                            <p style="font-size: 1em; color: var(--text-light); margin: 5px 0 5px 35px;">
-                                <i class="fas fa-calendar-alt" style="margin-right: 8px;"></i>
-                                2019 - 2021
-                            </p>
-                            <p style="font-size: 1em; color: var(--text-light); margin: 5px 0 5px 35px;">
-                                <i class="fas fa-trophy" style="margin-right: 8px;"></i>
-                                CGPA: 8.39/10.0
-                            </p>
-                            <p style="font-size: 1em; color: var(--text-light); margin: 5px 0 5px 35px;">
-                                <i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>
-                                Rupnagar, Punjab, India
-                            </p>
-                        </div>
-
-                        <div style="margin-top: 20px;">
-                            <h4 style="color: var(--primary-color); margin-bottom: 15px;">
-                                <i class="fas fa-book-open" style="color: var(--accent-color); margin-right: 8px;"></i>
-                                Key Coursework
-                            </h4>
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px;">
-                                <div style="background: var(--bg-light); padding: 12px; border-radius: 8px;">
-                                    <i class="fas fa-code" style="color: var(--accent-color); margin-right: 8px;"></i>
-                                    Data Structure & Algorithms
-                                </div>
-                                <div style="background: var(--bg-light); padding: 12px; border-radius: 8px;">
-                                    <i class="fas fa-database" style="color: var(--accent-color); margin-right: 8px;"></i>
-                                    Advanced Spatial Computing
-                                </div>
-                                <div style="background: var(--bg-light); padding: 12px; border-radius: 8px;">
-                                    <i class="fas fa-cogs" style="color: var(--accent-color); margin-right: 8px;"></i>
-                                    Advanced Computer Architecture
-                                </div>
-                                <div style="background: var(--bg-light); padding: 12px; border-radius: 8px;">
-                                    <i class="fas fa-network-wired" style="color: var(--accent-color); margin-right: 8px;"></i>
-                                    Memory System & Architecture
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style="margin-top: 20px;">
-                            <h4 style="color: var(--primary-color); margin-bottom: 15px;">
-                                <i class="fas fa-project-diagram" style="color: var(--accent-color); margin-right: 8px;"></i>
-                                Thesis
-                            </h4>
-                            <p style="line-height: 1.8; color: var(--text-dark); background: var(--bg-light); padding: 15px; border-radius: 8px;">
-                                <strong>Title:</strong> "A Multi-Threading Algorithm for Constrained Path Optimization Problem on Road Networks."<br>
-                                <strong>Supervisor:</strong> Dr. Venkata M. V. Gunturi
-                            </p>
-                        </div>
+                <div class="timeline-item degree-card">
+                    <h2>M.Tech. in Computer Science and Engineering</h2>
+                    <h3>Indian Institute of Technology Ropar, Punjab, India | 2019-2021</h3>
+                    <div class="degree-details">
+                        <p><strong>Thesis:</strong> A Multi-Threading Algorithm for Constrained Path Optimization on Road Networks</p>
+                        <p><strong>CGPA:</strong> 8.39/10.00</p>
                     </div>
+                    <ul>
+                        <li>Worked on parallel algorithms for constrained path optimization in road networks.</li>
+                        <li>Received MHRD GATE Scholarship during master's studies.</li>
+                    </ul>
                 </div>
 
-                <!-- B.Tech -->
-                <div class="timeline-item">
-                    <div style="background: var(--bg-white); padding: 30px; border-radius: 15px; box-shadow: var(--shadow-md);">
-                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                            <i class="fas fa-certificate" style="font-size: 3em; color: var(--accent-color);"></i>
-                            <div>
-                                <h2 style="margin: 0; color: var(--primary-color);">Bachelor of Technology (B.Tech)</h2>
-                                <h3 style="margin: 5px 0; color: var(--secondary-color);">Computer Science and Engineering</h3>
-                            </div>
-                        </div>
-                        
-                        <div style="margin-bottom: 15px;">
-                            <p style="font-size: 1.1em; margin: 5px 0;">
-                                <i class="fas fa-building" style="color: var(--accent-color); margin-right: 10px;"></i>
-                                <strong>Kalyani Government Engineering College</strong>
-                            </p>
-                            <p style="font-size: 1em; color: var(--text-light); margin: 5px 0 5px 35px;">
-                                <i class="fas fa-calendar-alt" style="margin-right: 8px;"></i>
-                                2014 - 2018
-                            </p>
-                            <p style="font-size: 1em; color: var(--text-light); margin: 5px 0 5px 35px;">
-                                <i class="fas fa-trophy" style="margin-right: 8px;"></i>
-                                Percentage: 74.5%
-                            </p>
-                            <p style="font-size: 1em; color: var(--text-light); margin: 5px 0 5px 35px;">
-                                <i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>
-                                West Bengal, India
-                            </p>
-                        </div>
-
-                        <div style="margin-top: 20px;">
-                            <h4 style="color: var(--primary-color); margin-bottom: 15px;">
-                                <i class="fas fa-star" style="color: var(--accent-color); margin-right: 8px;"></i>
-                                Highlights
-                            </h4>
-                            <ul style="list-style: none; padding: 0;">
-                                <li style="padding: 10px 0;">
-                                    <i class="fas fa-medal" style="color: var(--accent-color); margin-right: 10px;"></i>
-                                    Participated in national level coding competitions: Google Codejam, Codechef Snackdown, ACM-ICPC.
-                                </li>
-                            </ul>
-                        </div>
+                <div class="timeline-item degree-card">
+                    <h2>B.Tech. in Computer Science and Engineering</h2>
+                    <h3>Kalyani Government Engineering College, West Bengal, India | 2014-2018</h3>
+                    <div class="degree-details">
+                        <p><strong>CGPA:</strong> 7.45/10.00</p>
                     </div>
+                    <ul>
+                        <li>Built core foundations in programming, algorithms, computer systems, and software development.</li>
+                    </ul>
                 </div>
+            </div>
 
-                <!-- Higher Secondary -->
-                <div class="timeline-item">
-                    <div style="background: var(--bg-white); padding: 30px; border-radius: 15px; box-shadow: var(--shadow-md);">
-                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                            <i class="fas fa-school" style="font-size: 3em; color: var(--accent-color);"></i>
-                            <div>
-                                <h2 style="margin: 0; color: var(--primary-color);">Higher Secondary (Class XII)</h2>
-                                <h3 style="margin: 5px 0; color: var(--secondary-color);">Science Stream (PCM with Mathematics)</h3>
-                            </div>
-                        </div>
-                        
-                        <div style="margin-bottom: 15px;">
-                            <p style="font-size: 1.1em; margin: 5px 0;">
-                                <i class="fas fa-building" style="color: var(--accent-color); margin-right: 10px;"></i>
-                                <strong>Jamalpur High School</strong>
-                            </p>
-                            <p style="font-size: 1em; color: var(--text-light); margin: 5px 0 5px 35px;">
-                                <i class="fas fa-calendar-alt" style="margin-right: 8px;"></i>
-                                2011 - 2013
-                            </p>
-                            <p style="font-size: 1em; color: var(--text-light); margin: 5px 0 5px 35px;">
-                                <i class="fas fa-trophy" style="margin-right: 8px;"></i>
-                                Percentage: 80.4%
-                            </p>
-                            <p style="font-size: 1em; color: var(--text-light); margin: 5px 0 5px 35px;">
-                                <i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>
-                                West Bengal, India
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <h2><i class="fas fa-award"></i> Awards, Fellowships, and Grants</h2>
+            <div class="course-grid">
+                <article class="course-card award-card">
+                    <i class="fas fa-medal"></i>
+                    <h3>Institute Fellowship</h3>
+                    <p>Full institute fellowship for doctoral studies at Indian Institute of Technology Ropar, 2021-2026.</p>
+                </article>
 
-                <!-- Secondary -->
-                <div class="timeline-item">
-                    <div style="background: var(--bg-white); padding: 30px; border-radius: 15px; box-shadow: var(--shadow-md);">
-                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                            <i class="fas fa-book" style="font-size: 3em; color: var(--accent-color);"></i>
-                            <div>
-                                <h2 style="margin: 0; color: var(--primary-color);">Secondary (Class X)</h2>
-                                <h3 style="margin: 5px 0; color: var(--secondary-color);">Board Examination</h3>
-                            </div>
-                        </div>
-                        
-                        <div style="margin-bottom: 15px;">
-                            <p style="font-size: 1.1em; margin: 5px 0;">
-                                <i class="fas fa-building" style="color: var(--accent-color); margin-right: 10px;"></i>
-                                <strong>Panchra S.C.R.S. Vidya Mandir</strong>
-                            </p>
-                            <p style="font-size: 1em; color: var(--text-light); margin: 5px 0 5px 35px;">
-                                <i class="fas fa-calendar-alt" style="margin-right: 8px;"></i>
-                                2011
-                            </p>
-                            <p style="font-size: 1em; color: var(--text-light); margin: 5px 0 5px 35px;">
-                                <i class="fas fa-trophy" style="margin-right: 8px;"></i>
-                                Percentage: 84.25%
-                            </p>
-                            <p style="font-size: 1em; color: var(--text-light); margin: 5px 0 5px 35px;">
-                                <i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>
-                                West Bengal, India
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <article class="course-card award-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>MHRD GATE Scholarship</h3>
+                    <p>Scholarship during M.Tech. studies at Indian Institute of Technology Ropar, 2019-2021.</p>
+                </article>
+
+                <article class="course-card award-card">
+                    <i class="fas fa-ranking-star"></i>
+                    <h3>GATE 2019</h3>
+                    <p>Secured All India Rank 644 in Computer Science and Engineering.</p>
+                </article>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="social-links">
-                <a href="https://github.com/kousik-kr" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/kousik-kumar-dutta-91595b187/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://scholar.google.com/citations?user=KR_KousikDutta" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                <a href="https://dblp.org/pid/297/4783.html" target="_blank" title="DBLP"><i class="fas fa-book"></i></a>
-            </div>
-            <p><i class="fas fa-envelope"></i> kousik.21csz0004@iitrpr.ac.in</p>
-            <p><i class="fas fa-map-marker-alt"></i> Indian Institute of Technology Ropar, Punjab, India</p>
-            <div class="copyright">
-                <p>&copy; 2026 Kousik Kumar Dutta. All rights reserved.</p>
-                <p>Last updated: May 2026</p>
-            </div>
-        </div>
+        <div class="footer-content"></div>
     </footer>
 
     <script src="script.js"></script>
