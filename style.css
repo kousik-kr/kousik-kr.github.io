@@ -2241,6 +2241,51 @@ body {
     box-shadow: none;
 }
 
+.about-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 330px);
+    align-items: center;
+    gap: 44px;
+    margin-bottom: 34px;
+}
+
+.about-copy p {
+    margin-bottom: 0;
+}
+
+.about-portrait {
+    justify-self: end;
+    width: min(100%, 330px);
+    aspect-ratio: 4 / 5;
+    margin: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: var(--shadow-xl);
+    border: 6px solid #fff;
+}
+
+.about-portrait img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 38%;
+}
+
+@media (max-width: 900px) {
+    .about-intro {
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
+
+    .about-portrait {
+        justify-self: center;
+        order: -1;
+        width: min(82vw, 300px);
+    }
+}
+
 .section-heading {
     display: flex;
     align-items: center;
