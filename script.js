@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // ===== Typing Effect =====
 document.addEventListener("DOMContentLoaded", function () {
-    const text = "Ph.D. CSE | Operator-Ready Path Processing | Spatial Data Management | Scalable Graph Algorithms";
+    const text = "Ph.D. CSE | Spatial Data Management | Scalable Graph Algorithms | Operator-Ready Path Processing";
     const typingElement = document.getElementById("typing-text");
     
     if (!typingElement) return;
@@ -500,7 +500,7 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
             <div class="footer-bottom">
                 <span>&copy; 2026 Kousik Kumar Dutta. All rights reserved.</span>
-                <span>Last updated: May 2026</span>
+                <span>Last updated: August 2026</span>
             </div>
         `;
     });
