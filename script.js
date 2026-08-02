@@ -453,6 +453,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const footerProfiles = [
         ['https://scholar.google.com/citations?hl=en&user=cVei1KAAAAAJ', 'Google Scholar', 'fa-graduation-cap'],
         ['https://dblp.org/pid/297/4783.html', 'DBLP', 'fa-book'],
+        ['https://orcid.org/my-orcid?orcid=0000-0003-0779-1354', 'ORCID', 'fa-orcid'],
+        ['https://www.scopus.com/authid/detail.uri?authorId=57226285572', 'Scopus', 'scopus-mark'],
         ['https://github.com/kousik-kr', 'GitHub', 'fa-github'],
         ['https://www.linkedin.com/in/kousik-kumar-dutta-8577952b2/', 'LinkedIn', 'fa-linkedin']
     ];
@@ -460,8 +462,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const buildLinkList = (links, isExternal = false) => links.map(([href, label, icon]) => {
         const active = !isExternal && href === currentPage ? ' aria-current="page"' : '';
         const target = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
-        const iconFamily = icon === 'fa-github' || icon === 'fa-linkedin' ? 'fab' : 'fas';
-        return `<a href="${href}"${active}${target}><i class="${iconFamily} ${icon}"></i><span>${label}</span></a>`;
+        const iconMarkup = icon === 'scopus-mark'
+            ? '<span class="scopus-mark footer-profile-scopus" aria-hidden="true">SC</span>'
+            : `<i class="${icon === 'fa-github' || icon === 'fa-linkedin' || icon === 'fa-orcid' ? 'fab' : 'fas'} ${icon}" aria-hidden="true"></i>`;
+        return `<a href="${href}"${active}${target}>${iconMarkup}<span>${label}</span></a>`;
     }).join('');
 
     footerContainers.forEach(container => {
@@ -492,12 +496,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     <h3>Contact</h3>
                     <p><i class="fas fa-envelope"></i><span>kousik.21csz0004@iitrpr.ac.in</span></p>
                     <p><i class="fas fa-location-dot"></i><span>Indian Institute of Technology Ropar, Punjab, India</span></p>
-                    <div class="social-links">
-                        <a href="https://github.com/kousik-kr" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/kousik-kumar-dutta-8577952b2/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://scholar.google.com/citations?hl=en&user=cVei1KAAAAAJ" target="_blank" rel="noopener noreferrer" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                        <a href="https://dblp.org/pid/297/4783.html" target="_blank" rel="noopener noreferrer" title="DBLP"><i class="fas fa-book"></i></a>
-                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
