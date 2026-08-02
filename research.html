@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research Agenda - Kousik Kumar Dutta</title>
-    <meta name="description" content="Research agenda of Kousik Kumar Dutta: spatial data management, constrained route planning, graph algorithms, intelligent transportation systems, and scalable graph processing.">
+    <meta name="description" content="Research agenda of Kousik Kumar Dutta: operator-ready path-query processing, spatial and network data management, constrained route planning, and scalable graph algorithms.">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -31,20 +31,20 @@
             <div class="research-grid">
                 <div class="research-card">
                     <i class="fas fa-database icon"></i>
-                    <h3>Spatial Data Management</h3>
-                    <p>Efficient storage, querying, and processing of large-scale spatio-temporal and road-network data.</p>
+                    <h3>Spatial and Network Data Management</h3>
+                    <p>Reusable data representations, indexes, and query-processing methods for large spatio-temporal and road-network datasets.</p>
+                </div>
+
+                <div class="research-card">
+                    <i class="fas fa-layer-group icon"></i>
+                    <h3>Operator-Ready Path Query Processing</h3>
+                    <p>Hierarchical loopless path closures and reusable path records for composing results across different query operators.</p>
                 </div>
 
                 <div class="research-card">
                     <i class="fas fa-route icon"></i>
-                    <h3>Route Planning and Network Optimization</h3>
-                    <p>Preference-aware and constrained optimization methods for path computation in dynamic transportation networks.</p>
-                </div>
-
-                <div class="research-card">
-                    <i class="fas fa-project-diagram icon"></i>
-                    <h3>Graph Algorithms for Large Networks</h3>
-                    <p>Scalable shortest-path, graph-search, and constrained path algorithms for massive graphs.</p>
+                    <h3>Constrained Route Planning</h3>
+                    <p>Preference-aware path optimization under travel-time budgets, user requirements, and real-world network constraints.</p>
                 </div>
 
                 <div class="research-card">
@@ -54,9 +54,9 @@
                 </div>
 
                 <div class="research-card">
-                    <i class="fas fa-microchip icon"></i>
-                    <h3>Scalable Graph Processing</h3>
-                    <p>GPU-accelerated, secondary-memory, and learning-guided techniques for graph computation.</p>
+                    <i class="fas fa-project-diagram icon"></i>
+                    <h3>Scalable Graph Algorithms and Indexing</h3>
+                    <p>Hierarchical indexing, pruning, parallel processing, and storage-aware methods for computation on massive graphs.</p>
                 </div>
 
                 <div class="research-card">
@@ -68,6 +68,20 @@
 
             <h2><i class="fas fa-diagram-project"></i> Current Research Projects</h2>
             <div class="project-agenda">
+                <article class="agenda-card">
+                    <div class="agenda-icon"><i class="fas fa-layer-group"></i></div>
+                    <div>
+                        <h3>Hierarchical Operator-Ready Loopless Path Closure for Road-Network Query Processing</h3>
+                        <ul>
+                            <li>Developing a reusable, database-style path-closure layer that stores executable loopless path records across leaf cells and parent regions instead of optimizing only one path-query objective.</li>
+                            <li>Precomputing boundary-to-boundary closures and compact summary-path banks, then forming operator-specific results at query time through local source/target seeds and boundary-compatible hash composition.</li>
+                            <li>Focusing the first study on static road networks and constrained score maximization under a travel-time budget, with summary-only, closure-based, and adaptive execution modes.</li>
+                            <li>Establishing explicit exactness boundaries while evaluating storage, precomputation cost, query time, pruning effectiveness, hierarchy depth, and summary-bank scalability.</li>
+                            <li>Building the algorithmic and data-management foundation for later work on time-dependent networks, GPU acceleration, GIS data abstraction, learning-guided optimization, dynamic updates, and a unified path-processing system.</li>
+                        </ul>
+                    </div>
+                </article>
+
                 <article class="agenda-card">
                     <div class="agenda-icon"><i class="fas fa-brain"></i></div>
                     <div>

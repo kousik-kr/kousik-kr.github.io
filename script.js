@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // ===== Typing Effect =====
 document.addEventListener("DOMContentLoaded", function () {
-    const text = "Ph.D. CSE | Spatial Data Management | Route Planning | Scalable Graph Algorithms";
+    const text = "Ph.D. CSE | Operator-Ready Path Processing | Spatial Data Management | Scalable Graph Algorithms";
     const typingElement = document.getElementById("typing-text");
     
     if (!typingElement) return;
