@@ -12,16 +12,55 @@ const iconPaths = {
   home: '<path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13v-9.5"/><path d="M9.5 20v-5.5h5V20"/>',
   publications: '<path d="M6 3.5h9l3 3V20.5H6z"/><path d="M15 3.5v4h4"/><path d="M9 11h6M9 14.5h6M9 18h4"/>',
   research: '<circle cx="6" cy="7" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="m8.4 6.8 7.1-.6M7.4 9.1l3.3 6.7M16.8 8.1l-3.5 7.7"/>',
+  network: '<circle cx="6" cy="7" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="m8.4 6.8 7.1-.6M7.4 9.1l3.3 6.7M16.8 8.1l-3.5 7.7"/>',
   service: '<path d="M5 4h14v16H5z"/><path d="M8 2v4M16 2v4M8.5 10h7M8.5 14h7M8.5 18h4"/>',
   education: '<path d="m3 9 9-5 9 5-9 5z"/><path d="M7 12v4.5c2.8 2 7.2 2 10 0V12M21 9v6"/>',
   contact: '<path d="M4 5h16v14H4z"/><path d="m4 7 8 6 8-6"/>',
+  academic: '<path d="m3 9 9-5 9 5-9 5z"/><path d="M7 12v4.5c2.8 2 7.2 2 10 0V12M21 9v6"/>',
+  database: '<ellipse cx="12" cy="5.5" rx="7" ry="3"/><path d="M5 5.5v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/><path d="M5 11.5v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/>',
+  id: '<rect x="4" y="4.5" width="16" height="15" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M6.5 16c.7-1.7 4.3-1.7 5 0M14 9h3.5M14 13h3.5M14 16h2"/>',
+  search: '<circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 4.5 4.5"/>',
+  code: '<path d="m9 7-5 5 5 5M15 7l5 5-5 5"/>',
+  link: '<path d="M9.5 14.5 8 16a4 4 0 0 1-5.7-5.7l2.3-2.3a4 4 0 0 1 5.7 0"/><path d="m14.5 9.5 1.5-1.5a4 4 0 0 1 5.7 5.7l-2.3 2.3a4 4 0 0 1-5.7 0"/><path d="m8.5 15.5 7-7"/>',
+  arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  document: '<path d="M6 3.5h9l3 3V20.5H6z"/><path d="M15 3.5v4h4M9 12h6M9 15.5h6M9 19h4"/>',
+  play: '<circle cx="12" cy="12" r="8.5"/><path d="m10 8.5 5.5 3.5-5.5 3.5z"/>',
+  compass: '<circle cx="12" cy="12" r="8.5"/><path d="m15.5 8.5-2.2 4.8-4.8 2.2 2.2-4.8z"/>',
+  location: '<path d="M19 10c0 4.5-7 10-7 10s-7-5.5-7-10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.3"/>',
+  mail: '<rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="m4.5 7 7.5 6 7.5-6"/>',
   menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
   collapse: '<path d="m14.5 6-6 6 6 6"/>',
   close: '<path d="m6 6 12 12M18 6 6 18"/>'
 };
 
+// Platform marks use their recognizable silhouettes while inheriting the site theme color.
+const brandIconPaths = {
+  googleScholar: '<path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>',
+  dblp: '<path d="M3.075.002c-.096.013-.154.092-.094.31L4.97 7.73 3.1 8.6s-.56.26-.4.85l2.45 9.159s.16.59.72.33l6.169-2.869 1.3-.61s.52-.24.42-.79l-.01-.06-1.13-4.22-.658-2.45-.672-2.49v-.04s-.16-.59-.84-1L3.5.141s-.265-.16-.425-.139zM18.324 5.03a.724.724 0 0 0-.193.06l-5.602 2.6.862 3.2 1.09 4.08.01.06c.05.47-.411.79-.411.79l-1.88.87.5 1.89.04.1c.07.17.28.6.81.91l6.95 4.269s.68.41.52-.17l-1.981-7.4 1.861-.86s.56-.26.4-.85L18.85 5.42s-.116-.452-.526-.39z"/>',
+  orcid: '<path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/>',
+  scopus: '<path d="M24 19.059l-.14-1.777c-1.426.772-2.945 1.076-4.465 1.076-3.319 0-5.96-2.782-5.96-6.475 0-3.903 2.595-6.31 5.633-6.31 1.917 0 3.39.303 4.792 1.075L24 4.895c-1.286-.608-2.337-.889-4.698-.889-4.534 0-7.97 3.53-7.97 8.017 0 5.12 4.09 7.924 7.9 7.924 1.916 0 3.506-.257 4.768-.888zm-14.954-3.46c0-2.22-1.964-3.225-3.857-4.347C3.716 10.364 2.15 9.756 2.15 8.12c0-1.215.889-2.548 2.642-2.548 1.519 0 2.57.234 3.903 1.029l.117-1.847c-1.239-.514-2.127-.748-4.137-.748C1.8 4.006.047 5.876.047 8.26c0 2.384 2.103 3.413 4.02 4.581 1.426.865 2.922 1.45 2.922 2.992 0 1.496-1.333 2.571-2.922 2.571-1.566 0-2.594-.35-3.786-1.075L0 19.176c1.215.56 2.454.818 4.16.818 2.385 0 4.885-1.473 4.885-4.395z"/>',
+  github: '<path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>',
+  linkedin: '<path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.44-2.14 2.94v5.67H9.34V8.99h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.27 2.38 4.27 5.48v6.27zM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.99H7.1v11.46zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.27V1.73C24 .77 23.2 0 22.22 0z"/>'
+};
+
 function icon(name) {
   return `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${iconPaths[name]}</svg>`;
+}
+
+function brandIcon(name) {
+  return `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor">${brandIconPaths[name]}</svg>`;
+}
+
+function footerHeading(label, iconName) {
+  return `<h2><span class="footer-heading-icon">${icon(iconName)}</span><span>${label}</span></h2>`;
+}
+
+function profileIcon(label) {
+  return ({'Google Scholar':'googleScholar', DBLP:'dblp', ORCID:'orcid', Scopus:'scopus', GitHub:'github', LinkedIn:'linkedin'})[label] || 'googleScholar';
+}
+
+function profileLink(profile, iconClass='profile-link-icon') {
+  return `<a href="${profile.url}"${external(profile.url)}><span class="${iconClass}">${brandIcon(profileIcon(profile.label))}</span><span>${esc(profile.label)}</span></a>`;
 }
 
 function nav(active) {
@@ -45,7 +84,7 @@ function nav(active) {
 
 function footer() {
   const links = [['index.html','Home'],['publications.html','Publications'],['research.html','Research'],['experience.html','Academic service'],['education.html','Education'],['contact.html','Contact']];
-  return `<footer class="site-footer" data-reveal><div class="footer-grid"><section class="footer-profile" aria-labelledby="footer-name"><div class="footer-identity"><div><h2 id="footer-name">${esc(site.name)}</h2><p>${esc(site.subtitle)}</p></div></div><p>Graph algorithms, spatial and network data management, route planning, and scalable query processing.</p><a class="footer-cv" href="docs/CV.pdf">Download curriculum vitae <span aria-hidden="true">↗</span></a></section><nav class="footer-column" aria-label="Footer navigation"><h2>Navigate</h2>${links.map(([href,label])=>`<a href="${href}">${esc(label)}</a>`).join('')}</nav><nav class="footer-column" aria-label="Academic profiles"><h2>Academic profiles</h2>${site.profiles.map(p=>`<a href="${p.url}"${external(p.url)}>${esc(p.label)}</a>`).join('')}</nav><section class="footer-column footer-contact"><h2>Contact</h2><a href="mailto:${esc(site.email)}">${esc(site.email)}</a><a href="mailto:${esc(site.institutionalEmail)}">${esc(site.institutionalEmail)}</a><p>${esc(site.location)}</p><a href="contact.html">Full contact details</a></section></div><div class="footer-bottom"><p>© 2026 ${esc(site.name)} · Academic profile</p><p>Last updated October 2026</p></div></footer>`;
+  return `<footer class="site-footer" data-reveal><div class="footer-grid"><section class="footer-profile" aria-labelledby="footer-name"><div class="footer-identity"><div><h2 id="footer-name">${esc(site.name)}</h2><p>${esc(site.subtitle)}</p></div></div><p>Graph algorithms, spatial and network data management, route planning, and scalable query processing.</p><a class="footer-cv" href="docs/CV.pdf"><span class="footer-link-icon">${icon('document')}</span><span>Download curriculum vitae</span><span class="footer-link-arrow">${icon('arrow')}</span></a></section><nav class="footer-column" aria-label="Footer navigation">${footerHeading('Navigate','compass')}${links.map(([href,label])=>`<a href="${href}">${esc(label)}</a>`).join('')}</nav><nav class="footer-column" aria-label="Academic profiles">${footerHeading('Academic profiles','research')}${site.profiles.map(p=>profileLink(p,'footer-link-icon')).join('')}</nav><section class="footer-column footer-contact">${footerHeading('Contact','mail') }<a href="mailto:${esc(site.email)}"><span class="footer-link-icon">${icon('mail')}</span><span>${esc(site.email)}</span></a>${site.institutionalEmail ? `<a href="mailto:${esc(site.institutionalEmail)}">${esc(site.institutionalEmail)}</a>` : ''}<p><span class="footer-link-icon">${icon('location')}</span><span>${esc(site.location)}</span></p><a href="contact.html">Full contact details <span class="footer-link-arrow">${icon('arrow')}</span></a></section></div><div class="footer-bottom"><p>© 2026 ${esc(site.name)} · Academic profile</p><p>Last updated October 2026</p></div></footer>`;
 }
 
 function ambientScene(kind) {
@@ -76,13 +115,14 @@ function page({file, title, description, active, content, jsonLd=false, bodyClas
   return `${head(title, description, file, jsonLd)}<body class="${resolvedClass}">${nav(active)}${ambientScene(resolvedScene)}<div class="site-frame"><main id="main-content">${animatedContent}</main>${footer()}</div><script src="script-modern.js" defer></script></body></html>`;
 }
 
-const button = (href, label, primary=false) => `<a class="button ${primary ? 'button-primary' : ''}" href="${href}"${external(href)}>${label}</a>`;
+const buttonIcon = label => ({'Download CV':'document','Research interests':'research','Contact':'mail','Email me':'mail'})[label] || 'arrow';
+const button = (href, label, primary=false) => `<a class="button ${primary ? 'button-primary' : ''}" href="${href}"${external(href)}><span class="button-icon">${icon(buttonIcon(label))}</span><span>${label}</span></a>`;
 const links = p => {
   const out = [];
-  if (p.doi) out.push(`<a href="${p.doi}"${external(p.doi)}>DOI${p.doiLabel ? ` · ${esc(p.doiLabel)}` : ''}</a>`);
-  if (p.preprint) out.push(`<a href="${p.preprint}"${external(p.preprint)}>Preprint</a>`);
-  if (p.demo) out.push(`<a href="${p.demo}"${external(p.demo)}>Demo video</a>`);
-  if (p.poster) out.push(`<a href="${p.poster}">Poster PDF</a>`);
+  if (p.doi) out.push(`<a href="${p.doi}"${external(p.doi)}><span class="pub-link-icon">${icon('link')}</span><span>DOI${p.doiLabel ? ` · ${esc(p.doiLabel)}` : ''}</span></a>`);
+  if (p.preprint) out.push(`<a href="${p.preprint}"${external(p.preprint)}><span class="pub-link-icon">${icon('document')}</span><span>Preprint</span></a>`);
+  if (p.demo) out.push(`<a href="${p.demo}"${external(p.demo)}><span class="pub-link-icon">${icon('play')}</span><span>Demo video</span></a>`);
+  if (p.poster) out.push(`<a href="${p.poster}"><span class="pub-link-icon">${icon('document')}</span><span>Poster PDF</span></a>`);
   return out.length ? `<div class="pub-links">${out.join('')}</div>` : '';
 };
 
@@ -109,13 +149,13 @@ function home() {
 }
 
 function research() {
-  return page({file:'research.html',title:`Research | ${site.name}`,description:'Research interests and current directions of Dr. Kousik Kumar Dutta in graph algorithms, data management, and route planning.',active:'research.html',bodyClass:'research-page',scene:'research',content:`<section class="page-intro"><p class="eyebrow">Research</p><h1>Building scalable ways to reason about networks</h1><p class="lede">My work connects algorithm design with database and systems questions that arise when networks are large, dynamic, and shaped by competing preferences.</p></section><section class="section"><div class="section-heading"><p class="eyebrow">Interests</p><h2>A connected research agenda</h2></div><div class="interest-list"><span>Graph algorithms</span><span>Spatial and network data management</span><span>Time-dependent routing</span><span>Query processing</span><span>Scalable computing</span><span>Intelligent transportation</span></div></section><section class="section"><div class="section-heading"><p class="eyebrow">Current directions</p><h2>Three broad areas of ongoing work</h2></div>${directionCards(true)}</section><section class="section research-note"><p class="eyebrow">Doctoral foundation</p><h2>${esc(site.dissertation)}</h2><p>Doctoral research at IIT Ropar was conducted from 2021 to 2026 under the guidance of ${site.advisors.map(esc).join(' and ')}. The public descriptions here stay at the level of research questions and application context.</p></section>`});
+  return page({file:'research.html',title:`Research | ${site.name}`,description:'Research interests and current directions of Dr. Kousik Kumar Dutta in graph algorithms, data management, and route planning.',active:'research.html',bodyClass:'research-page',scene:'research',content:`<section class="page-intro"><p class="eyebrow">Research</p><h1>Building scalable ways to reason about networks</h1><p class="lede">My work connects algorithm design with database and systems questions that arise when networks are large, dynamic, and shaped by competing preferences.</p></section><section class="section research-interests-section"><div class="section-heading"><p class="eyebrow">Interests</p><h2>A connected research agenda</h2></div><div class="interest-list"><span>Graph algorithms</span><span>Spatial and network data management</span><span>Time-dependent routing</span><span>Query processing</span><span>Scalable computing</span><span>Intelligent transportation</span></div></section><section class="section"><div class="section-heading"><p class="eyebrow">Current directions</p><h2>Three broad areas of ongoing work</h2></div>${directionCards(true)}</section><section class="section research-note"><p class="eyebrow">Doctoral foundation</p><h2>${esc(site.dissertation)}</h2><p>Doctoral research at IIT Ropar was conducted from 2021 to 2026 under the guidance of ${site.advisors.map(esc).join(' and ')}. The public descriptions here stay at the level of research questions and application context.</p></section>`});
 }
 
 function publicationsPage() {
   const published = publications.filter(p=>p.type !== 'Manuscript');
   const manuscripts = publications.filter(p=>p.type === 'Manuscript');
-  return page({file:'publications.html',title:`Publications | ${site.name}`,description:'Published papers, demonstrations, workshop contributions, and restrained manuscript status for Dr. Kousik Kumar Dutta.',active:'publications.html',bodyClass:'publications-page',content:`<section class="page-intro"><p class="eyebrow">Publications</p><h1>Published work and current manuscripts</h1><p class="lede">The inventory below records titles, authors, venues, dates, identifiers, and public summaries. Filters enhance browsing when JavaScript is available; every record remains readable in the static page.</p><div class="profile-links">${site.profiles.slice(0,4).map(p=>`<a href="${p.url}"${external(p.url)}>${esc(p.label)}</a>`).join('')}</div></section><section class="section publication-section"><div class="filter-bar" role="group" aria-label="Filter publications"><button class="filter-button active" type="button" data-filter="all" aria-pressed="true">All</button><button class="filter-button" type="button" data-filter="journals" aria-pressed="false">Journals</button><button class="filter-button" type="button" data-filter="conferences" aria-pressed="false">Conferences</button><button class="filter-button" type="button" data-filter="workshops" aria-pressed="false">Workshops &amp; demos</button><button class="filter-button" type="button" data-filter="manuscripts" aria-pressed="false">Manuscripts</button></div><div class="pub-grid" id="publication-list">${published.map((p,i)=>pubCard(p,i===0)).join('')}${manuscripts.map(p=>pubCard(p)).join('')}</div></section><section class="section publication-note"><p class="eyebrow">Record notes</p><p>Venue classifications and rankings are shown only where the current public source and track support them. The WISE 2024 item is listed as a Posters and Demos contribution; the UIC track is identified for the 2021 wearable-sensing paper. Journal metrics are not applied to manuscripts.</p></section>`});
+  return page({file:'publications.html',title:`Publications | ${site.name}`,description:'Published papers, demonstrations, workshop contributions, and restrained manuscript status for Dr. Kousik Kumar Dutta.',active:'publications.html',bodyClass:'publications-page',content:`<section class="page-intro"><p class="eyebrow">Publications</p><h1>Published work and current manuscripts</h1><p class="lede">The inventory below records titles, authors, venues, dates, identifiers, and public summaries. Filters enhance browsing when JavaScript is available; every record remains readable in the static page.</p><div class="profile-links">${site.profiles.slice(0,4).map(p=>profileLink(p)).join('')}</div></section><section class="section publication-section"><div class="filter-bar" role="group" aria-label="Filter publications"><button class="filter-button active" type="button" data-filter="all" aria-pressed="true">All</button><button class="filter-button" type="button" data-filter="journals" aria-pressed="false">Journals</button><button class="filter-button" type="button" data-filter="conferences" aria-pressed="false">Conferences</button><button class="filter-button" type="button" data-filter="workshops" aria-pressed="false">Workshops &amp; demos</button><button class="filter-button" type="button" data-filter="manuscripts" aria-pressed="false">Manuscripts</button></div><div class="pub-grid" id="publication-list">${published.map((p,i)=>pubCard(p,i===0)).join('')}${manuscripts.map(p=>pubCard(p)).join('')}</div></section><section class="section publication-note"><p class="eyebrow">Record notes</p><p>Venue classifications and rankings are shown only where the current public source and track support them. The WISE 2024 item is listed as a Posters and Demos contribution; the UIC track is identified for the 2021 wearable-sensing paper. Journal metrics are not applied to manuscripts.</p></section>`});
 }
 
 function education() {
@@ -133,8 +173,8 @@ function experience() {
 }
 
 function contact() {
-  const profileCards = site.profiles.map(p=>`<a class="contact-card" href="${p.url}"${external(p.url)}><span class="contact-label">${esc(p.label)}</span><span>${esc(p.url.replace(/^https?:\/\//,'').replace(/\/$/,''))}</span></a>`).join('');
-  return page({file:'contact.html',title:`Contact | ${site.name}`,description:'Contact and academic profile links for Dr. Kousik Kumar Dutta.',active:'contact.html',content:`<section class="page-intro"><p class="eyebrow">Contact</p><h1>Let’s talk about research and teaching</h1><p class="lede">I welcome conversations about research collaboration, graph and data systems, doctoral mentoring, teaching, and academic service.</p><div class="hero-actions">${button(`mailto:${site.email}?subject=Academic%20inquiry%20for%20Dr.%20Kousik%20Kumar%20Dutta`,'Email me',true)}${button('docs/CV.pdf','Download CV')}</div></section><section class="section contact-section"><div class="contact-primary"><h2>Direct contact</h2><p><strong>Primary email</strong><br><a href="mailto:${esc(site.email)}">${esc(site.email)}</a></p><p><strong>Institutional email</strong><br><a href="mailto:${esc(site.institutionalEmail)}">${esc(site.institutionalEmail)}</a></p><p><strong>Location</strong><br>Indian Institute of Technology Ropar<br>${esc(site.location)}</p></div><div class="contact-grid">${profileCards}</div></section>`});
+  const profileCards = site.profiles.map(p=>`<a class="contact-card" href="${p.url}"${external(p.url)}><span class="contact-card-icon">${brandIcon(profileIcon(p.label))}</span><span class="contact-label">${esc(p.label)}</span><span>${esc(p.url.replace(/^https?:\/\//,'').replace(/\/$/,''))}</span></a>`).join('');
+  return page({file:'contact.html',title:`Contact | ${site.name}`,description:'Contact and academic profile links for Dr. Kousik Kumar Dutta.',active:'contact.html',content:`<section class="page-intro"><p class="eyebrow">Contact</p><h1>Let’s talk about research and teaching</h1><p class="lede">I welcome conversations about research collaboration, graph and data systems, doctoral mentoring, teaching, and academic service.</p><div class="hero-actions">${button(`mailto:${site.email}?subject=Academic%20inquiry%20for%20Dr.%20Kousik%20Kumar%20Dutta`,'Email me',true)}${button('docs/CV.pdf','Download CV')}</div></section><section class="section contact-section"><div class="contact-primary"><h2>Direct contact</h2><p><strong>Primary email</strong><br><a href="mailto:${esc(site.email)}">${esc(site.email)}</a></p>${site.institutionalEmail ? `<p><strong>Institutional email</strong><br><a href="mailto:${esc(site.institutionalEmail)}">${esc(site.institutionalEmail)}</a></p>` : ''}<p><strong>Location</strong><br>Indian Institute of Technology Ropar<br>${esc(site.location)}</p></div><div class="contact-grid">${profileCards}</div></section>`});
 }
 
 function alias(title, target) { return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=${target}"><link rel="canonical" href="https://kousik-kr.github.io/${target}"><meta name="robots" content="noindex"><title>${title} moved</title></head><body><main><p>This page has moved to <a href="${target}">${target}</a>.</p></main></body></html>`; }
