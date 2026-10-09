@@ -1,0 +1,56 @@
+{
+  "name": "Dr. Kousik Kumar Dutta",
+  "shortName": "Kousik Dutta",
+  "subtitle": "Computer Science Researcher | Open to Collaboration",
+  "email": "kousikkumar95@gmail.com",
+  "institutionalEmail": "kousik.21csz0004@iitrpr.ac.in",
+  "location": "Rupnagar, Punjab, India",
+  "bio": "I am a computer science researcher working on preference-aware routing, time-dependent road networks, and scalable graph algorithms. I completed my PhD defence in Computer Science and Engineering at IIT Ropar in September 2026, after doctoral work on constrained maximization of preferences on time-dependent road networks. My research combines algorithms and systems, with an evolving agenda in database systems, spatial and network data management, scalable computing, and graph query processing. I am interested in building research programmes that connect rigorous algorithm design with useful systems, and in teaching the foundations that help students reason about data, software, and computation. I am open to collaboration on graph algorithms, data systems, transportation networks, and related teaching or research initiatives.",
+  "dissertation": "Constrained Maximization of Preferences on Time-Dependent Road Networks",
+  "advisors": ["Dr. Venkata M. V. Gunturi", "Dr. T. V. Kalyan"],
+  "profiles": [
+    {"label":"Google Scholar","url":"https://scholar.google.com/citations?hl=en&user=cVei1KAAAAAJ"},
+    {"label":"DBLP","url":"https://dblp.org/pid/297/4783.html"},
+    {"label":"ORCID","url":"https://orcid.org/0000-0003-0779-1354"},
+    {"label":"Scopus","url":"https://www.scopus.com/authid/detail.uri?authorId=57226285572"},
+    {"label":"GitHub","url":"https://github.com/kousik-kr"},
+    {"label":"LinkedIn","url":"https://www.linkedin.com/in/kousik-kumar-dutta-8577952b2/"}
+  ],
+  "researchDirections": [
+    {"title":"Constrained and Preference-Aware Path Query Processing","short":"Efficient approaches for constrained and preference-aware path queries in large transportation networks, including route choices that evolve under time-dependent conditions.","description":"Investigating efficient approaches for processing constrained and preference-aware path queries in large transportation networks, with particular interest in how route choices evolve under time-dependent conditions.","keywords":["Path queries","Preferences","Transportation networks"]},
+    {"title":"Scalable Graph Representations and Path-Closure Processing","short":"Graph representations and query-processing techniques for connectivity and path relationships in large networks, with an emphasis on scalable data management.","description":"Exploring graph representations and query-processing techniques that support efficient analysis of connectivity and path relationships in large networks, with an emphasis on scalable data management and reusable computation.","keywords":["Graph data","Path relationships","Scalable systems"]},
+    {"title":"GPU-Accelerated Graph Analytics and Query Processing","short":"Parallel and hardware-accelerated approaches for large-scale graph workloads, with attention to irregular computation, data movement, and path-query execution.","description":"Exploring parallel and hardware-accelerated approaches for large-scale graph workloads, particularly the challenges of irregular computation, data movement, and scalable path-query execution.","keywords":["GPU computing","Graph analytics","Parallel systems"]}
+  ],
+  "news": [
+    {"date":"16 September 2026","text":"Successfully completed the PhD defence in Computer Science and Engineering at IIT Ropar."},
+    {"date":"June 2026","text":"Received the IEEE Technical Committee on Data Engineering Student Grant for MDM 2026."},
+    {"date":"23 May 2026","text":"Published a GeoInformatica article on constrained maximization of preferences in large time-dependent graphs."},
+    {"date":"2026","text":"Presented the user-configurable wideness and turn-aware routing demonstration at MDM 2026."},
+    {"date":"2025","text":"Presented interval-based constrained path optimization work at WISE 2025."},
+    {"date":"2024","text":"Presented constrained path optimization work in the WISE 2024 Posters and Demos Track."}
+  ],
+  "education": [
+    {"degree":"Doctoral study in Computer Science and Engineering","school":"Indian Institute of Technology Ropar, Punjab, India","period":"2021–2026","details":[["Dissertation", "Constrained Maximization of Preferences on Time-Dependent Road Networks"],["Advisors", "Dr. Venkata M. V. Gunturi and Dr. T. V. Kalyan"],["CGPA", "7.92/10.00"]]},
+    {"degree":"MTech in Computer Science and Engineering","school":"Indian Institute of Technology Ropar, Punjab, India","period":"2019–2021","details":[["Thesis", "A Multi-Threading Algorithm for Constrained Path Optimization on Road Networks"],["CGPA", "8.39/10.00"]]},
+    {"degree":"BTech in Computer Science and Engineering","school":"Kalyani Government Engineering College, West Bengal, India","period":"2014–2018","details":[["CGPA", "7.45/10.00"]]}
+  ],
+  "awards": [
+    ["IEEE TCDE Student Grant", "Recipient of the IEEE Technical Committee on Data Engineering Student Grant for MDM 2026."],
+    ["Institute Fellowship", "Institute fellowship for doctoral studies at IIT Ropar, 2021–2026."],
+    ["MHRD GATE Scholarship", "Scholarship during MTech studies at IIT Ropar, 2019–2021."],
+    ["GATE 2019", "All India Rank 644 in Computer Science and Engineering."]
+  ],
+  "courses": [
+    ["CS301 · Databases", "BTech core course", "Laboratory support and evaluation covering SQL, relational design, query processing, and student database projects."],
+    ["CS305 · Software Engineering", "BTech core course", "Laboratory evaluation and guidance on requirements, architecture, design patterns, testing, and development workflow."],
+    ["CS509 · PG Software Lab", "MTech core course", "Postgraduate mentoring in data structures, algorithms, graph processing, and external-memory methods."]
+  ],
+  "teachingTimeline": [
+    {"period":"2025–2026","courses":[["August–December","CS301 · Databases","Primary TA"],["January–May","CS305 · Software Engineering","Primary TA"]]},
+    {"period":"2024–2025","courses":[["August–December","CS301 · Databases","Primary TA"],["January–May","CS305 · Software Engineering","Primary TA"]]},
+    {"period":"2023–2024","courses":[["August–December","CS301 · Databases","Primary TA"],["January–May","CS305 · Software Engineering","Primary TA"]]},
+    {"period":"2022–2023","courses":[["August–December","CS301 · Databases","Primary TA"],["January–May","CS305 · Software Engineering","Primary TA"]]},
+    {"period":"2021–2022","courses":[["August–December","CS301 · Databases","Primary TA"],["August–December","CS509 · PG Software Lab","Secondary TA"],["January–May","CS305 · Software Engineering","Primary TA"]]},
+    {"period":"2020–2021","courses":[["August–December","CS301 · Databases","Secondary TA · BTech CSE core"],["January–May","CS301 · Databases","Secondary TA · CSE minor"]]}
+  ]
+}

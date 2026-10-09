@@ -151,12 +151,13 @@ const server = http.createServer(async (request, response) => {
             '.html': 'text/html; charset=utf-8',
             '.css': 'text/css; charset=utf-8',
             '.js': 'application/javascript; charset=utf-8',
+            '.json': 'application/json; charset=utf-8',
+            '.pdf': 'application/pdf',
             '.png': 'image/png',
             '.jpg': 'image/jpeg',
             '.jpeg': 'image/jpeg',
             '.webp': 'image/webp',
-            '.svg': 'image/svg+xml',
-            '.json': 'application/json; charset=utf-8'
+            '.svg': 'image/svg+xml'
         }[ext] || 'application/octet-stream';
 
         response.writeHead(200, { 'Content-Type': contentType });

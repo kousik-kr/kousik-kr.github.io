@@ -2,8 +2,10 @@
   "name": "kousik-kr-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Personal portfolio site for Kousik Kumar Dutta",
+  "description": "Academic profile site for Dr. Kousik Kumar Dutta",
   "scripts": {
+    "build": "node scripts/build.js",
+    "check": "node scripts/check.js",
     "start": "node server.js"
   }
 }
