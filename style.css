@@ -2886,14 +2886,13 @@ main { min-height:calc(100vh - 76px); }
 .pub-links a { font-size:.83rem; font-weight:750; }
 .manuscript { border-left:3px solid var(--gold); }
 .split-section,.two-column { display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start; }
-.split-section p,.research-note p,.publication-note p { color:var(--muted); }
+.split-section p,.publication-note p { color:var(--muted); }
 .callout { padding:1.5rem; background:var(--navy); color:var(--white); }
 .callout strong { font:700 1.35rem/1.2 var(--serif); }
 .callout p { color:#d9e6e7; margin:.7rem 0; }
 .callout a { color:#a8e2da; }
 .interest-list { display:flex; flex-wrap:wrap; gap:.6rem; }
 .interest-list span { padding:.55rem .85rem; border:1px solid var(--line); background:var(--white); color:var(--teal-dark); font-weight:700; }
-.research-note { background:#edf3f1; max-width:100%; padding-left:max(calc((100% - 1080px)/2),1.25rem); padding-right:max(calc((100% - 1080px)/2),1.25rem); }
 .timeline { border-left:2px solid var(--teal); margin-left:.5rem; }
 .timeline-item { position:relative; padding:0 0 2.6rem 2rem; }
 .timeline-item:before { content:''; position:absolute; width:.75rem; height:.75rem; border-radius:50%; background:var(--gold); left:-.42rem; top:.2rem; }
@@ -4483,15 +4482,6 @@ main {
     text-align: center;
 }
 
-.home-kicker {
-    margin: 0 0 1rem;
-    color: #8ee5dd;
-    font-size: .76rem;
-    font-weight: 850;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-}
-
 .home-masthead h1 {
     margin: 0;
     color: #fff;
@@ -5222,4 +5212,49 @@ main {
     .research-interests-section .section-heading .eyebrow {
         margin-bottom: .55rem;
     }
+}
+
+/* Inner pages use one clear section title instead of a label plus a second headline. */
+.page-intro .page-title {
+    max-width: 900px;
+    margin: 0 0 .85rem;
+    color: var(--teal);
+    font: 700 clamp(2.5rem, 5vw, 4.8rem)/1.05 var(--serif);
+    letter-spacing: -.035em;
+    text-transform: uppercase;
+}
+
+@media (max-width:680px) {
+    .page-intro .page-title {
+        font-size: clamp(2.25rem, 11vw, 3.5rem);
+    }
+}
+
+/* Section labels now carry the hierarchy on their own; the descriptive second headline is removed. */
+.section-heading h2.section-title,
+.home-about-copy h2.section-title,
+.home-news-heading h2.section-title,
+.split-section > div:first-child h2.section-title {
+    margin: 0 0 .85rem;
+    color: #246fa8;
+    font: 750 clamp(1.9rem, 3.8vw, 3rem)/1.1 var(--sans);
+    letter-spacing: -.018em;
+    text-transform: none;
+    font-variant-caps: small-caps;
+}
+
+.section-heading h2.section-title::first-letter,
+.home-about-copy h2.section-title::first-letter,
+.home-news-heading h2.section-title::first-letter,
+.split-section > div:first-child h2.section-title::first-letter {
+    font-size: 1.16em;
+    font-weight: 850;
+}
+
+.section-heading h2.section-title {
+    margin-bottom: 1.35rem;
+}
+
+.home-news-heading h2.section-title {
+    margin-bottom: 0;
 }
