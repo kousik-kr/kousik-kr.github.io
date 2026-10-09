@@ -2860,7 +2860,8 @@ main { min-height:calc(100vh - 76px); }
 .news-list li { display:grid; grid-template-columns:150px 1fr; gap:1rem; padding:.95rem 0; border-bottom:1px solid var(--line); }
 .news-list time { color:var(--teal-dark); font-weight:750; font-size:.9rem; }
 .news-list span { color:var(--muted); }
-.direction-grid,.pub-grid,.card-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+.direction-grid,.pub-grid { display:grid; grid-template-columns:1fr; gap:1rem; }
+.card-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
 .direction-card,.pub-card,.simple-card,.contact-card,.callout { background:var(--white); border:1px solid var(--line); box-shadow:var(--shadow); }
 .direction-card { padding:1.35rem; min-height:235px; display:flex; flex-direction:column; }
 .direction-card h3,.simple-card h3,.pub-card h3 { margin:.1rem 0 .65rem; color:var(--navy); font:700 1.25rem/1.25 var(--serif); }
@@ -2868,7 +2869,6 @@ main { min-height:calc(100vh - 76px); }
 .keywords { margin-top:auto; display:flex; flex-wrap:wrap; gap:.35rem; padding-top:1.1rem; }
 .keywords span { color:var(--teal-dark); background:#e7f3f1; padding:.18rem .48rem; border-radius:20px; font-size:.72rem; font-weight:700; }
 .section-link { margin:1.4rem 0 0; font-weight:750; }
-.pub-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
 .pub-card { padding:1.35rem; display:flex; flex-direction:column; min-width:0; }
 .pub-card.featured { border-top:4px solid var(--teal); }
 .pub-card-top { display:flex; justify-content:space-between; gap:.8rem; align-items:baseline; margin-bottom:.55rem; }
@@ -4206,8 +4206,9 @@ main {
 .home-masthead h1 {
     margin: 0;
     color: #fff;
-    font: 700 clamp(3.2rem,8vw,6.7rem)/.96 var(--serif);
-    letter-spacing: -.045em;
+    font: 700 clamp(2.8rem,5.5vw,5.2rem)/.96 var(--serif);
+    letter-spacing: -.055em;
+    white-space: nowrap;
     text-shadow: 0 8px 34px rgba(0,0,0,.38);
 }
 
@@ -4670,6 +4671,7 @@ main {
 
     .home-masthead h1 {
         font-size: clamp(2.8rem,14vw,4rem);
+        white-space: normal;
     }
 
     .home-expertise span {
