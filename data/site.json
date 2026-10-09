@@ -3,8 +3,7 @@
   "shortName": "Dr. Kousik",
   "subtitle": "Computer Science Researcher | Open to Collaboration",
   "email": "kousikkumar95@gmail.com",
-  "institutionalEmail": "kousik.21csz0004@iitrpr.ac.in",
-  "location": "Rupnagar, Punjab, India",
+  "location": "Burdwan, India",
   "bio": "I am a computer science researcher working on preference-aware routing, time-dependent road networks, and scalable graph algorithms. I completed my PhD defence in Computer Science and Engineering at IIT Ropar in September 2026, after doctoral work on constrained maximization of preferences on time-dependent road networks. My research combines algorithms and systems, with an evolving agenda in database systems, spatial and network data management, scalable computing, and graph query processing. I am interested in building research programmes that connect rigorous algorithm design with useful systems, and in teaching the foundations that help students reason about data, software, and computation. I am open to collaboration on graph algorithms, data systems, transportation networks, and related teaching or research initiatives.",
   "dissertation": "Constrained Maximization of Preferences on Time-Dependent Road Networks",
   "advisors": ["Dr. Venkata M. V. Gunturi", "Dr. T. V. Kalyan"],
@@ -30,8 +29,8 @@
     {"date":"2024","text":"Presented constrained path optimization work in the WISE 2024 Posters and Demos Track."}
   ],
   "education": [
-    {"degree":"Doctoral study in Computer Science and Engineering","school":"Indian Institute of Technology Ropar, Punjab, India","period":"2021–2026","details":[["Dissertation", "Constrained Maximization of Preferences on Time-Dependent Road Networks"],["Advisors", "Dr. Venkata M. V. Gunturi and Dr. T. V. Kalyan"],["CGPA", "7.92/10.00"]]},
-    {"degree":"MTech in Computer Science and Engineering","school":"Indian Institute of Technology Ropar, Punjab, India","period":"2019–2021","details":[["Thesis", "A Multi-Threading Algorithm for Constrained Path Optimization on Road Networks"],["CGPA", "8.39/10.00"]]},
+    {"degree":"Doctoral study in Computer Science and Engineering","school":"Indian Institute of Technology Ropar, Burdwan, India","period":"2021–2026","details":[["Dissertation", "Constrained Maximization of Preferences on Time-Dependent Road Networks"],["Advisors", "Dr. Venkata M. V. Gunturi and Dr. T. V. Kalyan"],["CGPA", "7.92/10.00"]]},
+    {"degree":"MTech in Computer Science and Engineering","school":"Indian Institute of Technology Ropar, Burdwan, India","period":"2019–2021","details":[["Thesis", "A Multi-Threading Algorithm for Constrained Path Optimization on Road Networks"],["CGPA", "8.39/10.00"]]},
     {"degree":"BTech in Computer Science and Engineering","school":"Kalyani Government Engineering College, West Bengal, India","period":"2014–2018","details":[["CGPA", "7.45/10.00"]]}
   ],
   "awards": [
